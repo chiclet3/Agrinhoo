@@ -1,53 +1,126 @@
+Estrutura html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Conexão Campo & Cidade</title>
-  <link rel="stylesheet" href="estilo.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Festejando a Conexão do Campo e da Cidade</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #f0f8ff, #e0ffe0);
+      color: #333;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    nav {
+      background-color: #3e8e41;
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .section h2 {
+      color: #2c6e3c;
+      margin-bottom: 1rem;
+    }
+
+    .section p {
+      line-height: 1.6;
+    }
+
+    .image-box {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .image-box img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background-color: #2e7031;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
 
   <header>
-    <h1>Conexão Campo & Cidade</h1>
-    <p>Um projeto que celebra a união entre dois mundos essenciais</p>
+    <h1>Festejando a Conexão do Campo e da Cidade</h1>
   </header>
 
-  <section class="banner">
-    <h2>Bem-vindo ao Projeto Agrinho</h2>
-    <p>Aqui os alunos exploram como o campo e a cidade se complementam.</p>
-  </section>
+  <nav>
+    <a href="#objetivo">Objetivo</a>
+    <a href="#atividades">Atividades</a>
+    <a href="#galeria">Galeria</a>
+  </nav>
 
-  <section class="sobre">
-    <h2>Sobre o Projeto</h2>
-    <p>O campo produz, a cidade transforma. Juntos, constroem o nosso dia a dia. Este espaço é dedicado à valorização de ambos os ambientes por meio de textos, imagens e criatividade dos alunos.</p>
-  </section>
+  <div class="container">
 
-  <section class="galeria">
-    <h2>Galeria de Imagens</h2>
-    <div class="imagem-box">
-      <p><strong>Campo:</strong></p>
-      <img src="" alt="Imagem do campo" class="imagem-exemplo">
+    <section id="objetivo" class="section">
+      <h2>Objetivo do Projeto</h2>
+      <p>Este projeto tem como foco celebrar e fortalecer a conexão entre o campo e a cidade, destacando a importância da agricultura, do comércio, da cultura e da cooperação mútua para um desenvolvimento sustentável e justo.</p>
+    </section>
 
-      <p><strong>Cidade:</strong></p>
-      <img src="" alt="Imagem da cidade" class="imagem-exemplo">
-    </div>
-  </section>
+    <section id="atividades" class="section">
+      <h2>Atividades Desenvolvidas</h2>
+      <ul>
+        <li>Feira de produtos locais: “Do Campo à Mesa”.</li>
+        <li>Entrevistas com agricultores e comerciantes urbanos.</li>
+        <li>Oficinas de culinária e sustentabilidade.</li>
+        <li>Exposição de artes com materiais recicláveis.</li>
+      </ul>
+    </section>
 
-  <section class="textos">
-    <h2>Textos e Reflexões</h2>
-    <p><strong>1. O que o campo representa para você?</strong></p>
-    <textarea rows="4" placeholder="Escreva aqui..."></textarea>
+    <section id="galeria" class="section">
+      <h2>Galeria de Imagens</h2>
+      <div class="image-box">
+        <img src="https://via.placeholder.com/800x400.png?text=Campo+e+Cidade&quot; alt="Conexão do Campo e Cidade">
+      </div>
+    </section>
 
-    <p><strong>2. Como a cidade se conecta com a vida rural?</strong></p>
-    <textarea rows="4" placeholder="Digite sua resposta..."></textarea>
-  </section>
+  </div>
 
   <footer>
-    <p>&copy; 2025 – Projeto Agrinho | Escola ____________________</p>
+    <p>&copy; 2025 Projeto Agrinho – Todos os direitos reservados.</p>
   </footer>
 
 </body>
 </html>
-
 
