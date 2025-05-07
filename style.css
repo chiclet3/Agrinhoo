@@ -9,7 +9,7 @@ body {
 
 /* Cabeçalho */
 header {
-  background-color: #4CAF50;
+  background-color: #0bee12d2;
   color: white;
   padding: 2rem 1rem;
   text-align: center;
@@ -17,7 +17,7 @@ header {
 
 /* Navegação */
 nav {
-  background-color: #388e3c;
+  background-color: #1deb27;
   text-align: center;
   padding: 1rem;
 }
