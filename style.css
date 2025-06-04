@@ -1,70 +1,208 @@
-/* Estilo geral */
+import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+
+:root {
+    --laranja-claro: #2a51ff;
+    --alto-contraste-fundo: #1ebba1;
+    --alto-contraste-texto: hsl(59, 86%, 49%);
+    --alto-contraste-link: #ffbb0049;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #fbfff2;
-  color: #333;
+    font-size: 1rem;
+    font-family: 'Montserrat';
 }
 
-/* Cabeçalho */
 header {
-  background-color: #0bee12d2;
-  color: white;
-  padding: 2rem 1rem;
-  text-align: center;
+    background-color: 1lab(85.95% 0.23 85.09 / 0.514);
 }
 
-/* Navegação */
-nav {
-  background-color: #1deb27;
-  text-align: center;
-  padding: 1rem;
+
+section {
+    padding-bottom: 5rem;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: bold;
+
+.nav-link {
+    color: #00ffd5;
+    font-weight: 600;
 }
 
-/* Conteúdo principal */
-.container {
-  padding: 2rem;
-  max-width: 900px;
-  margin: auto;
+.inicio-fundo {
+    /* aula 3 */LICENSE
+
+    background-image: url('img/4965007.jpg');
+    /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: right;
+    border-radius: 80px;
+    width: 100%;LICENSE
+
+    height: 606px;
+    padding: 40px;
+    margin: 0 auto;
 }
 
-/* Seções */
-.section {
-  margin-bottom: 2rem;
+/* posicionamento para a imagem à direita */
+.img-inicio {
+    position: absolute;
+    right: 0;
+    top: 18rem;
+    width: 45rem;
+    height: auto;
 }
 
-.section h2 {
-  color: #17d621;
-  margin-bottom: 1rem;
+
+.esquerda-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
 }
 
-.section p {
-  line-height: 1.6;
+
+.botao-inicio {
+    background-color: var(--laranja-claro);
+    border-radius: 30px;
+    border: none;
+    width: 14em;
+    height: 3em;
+    align-content: center;
+
 }
 
-/* Espaço do aluno */
-.custom-area {
-  background-color: #ffffff;
-  border: 2px dashed #ccc;
-  padding: 1rem;
-  text-align: center;
-  color: #777;
-  margin-top: 1rem;
+.display-4 {
+    text-shadow: -5px 5px var(--laranja-claro);
 }
 
-/* Rodapé */
-footer {
-  background-color: #F0EAD6;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
+
+#tropicalia {
+    position: relative;
+    padding-top: 5rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    background: url('img/flor.png') top right no-repeat,
+        url('img/flor-esquerda.png') bottom left no-repeat;
+    background-size: 180px 180px;
+    /* Ajuste o tamanho conforme necessário */
+}
+
+#tropicalia .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    /* Garante que o conteúdo fica acima das imagens do background */
+}
+
+
+h2 {
+    font-family: 'Lemon', serif;
+    font-size: 2.5em;
+    font-style: normal;
+    color: var(--laranja-claro);
+}
+
+#galeria {
+    border-radius: 10px;
+    /* Borda arredondada para o formulário */
+    background-color: hsl(175, 58%, 55%);
+
+}
+
+.fundo-galeria {
+    background: url('img/flor-bottom-direita.png') bottom right no-repeat;
+    background-size: 180px 180px;
+}
+
+#contato {
+    background-image: url('img/4965007.jpg');
+    background-size: cover;
+    padding: 4rem 0;
+    border-radius: 10px;
+    /* Borda arredondada para o formulário */
+    /* Espaçamento interno para a seção de contato */
+
+}
+
+.formulario {
+    background-color: hsl(199, 51%, 47%);
+    padding: 2rem;
+    /* Espaçamento interno dentro do formulário */
+    border-radius: 10px;
+    /* Borda arredondada para o formulário */
+    box-shadow: 0 0 10px rgba(31, 131, 127, 0.1);
+    /* Sombra suave para destacar o formulário */
+    font-weight: bold;
+    border-radius: 10px;
+    /* Borda arredondada para o formulário */
+}
+
+.formulario button {
+    background-color: hsl(187, 57%, 53%);
+    border: none;
+    font-weight: bold;
+}
+
+.form-control {
+    background-color: hsl(177, 75%, 55%);
+}
+.menu-acessibilidade{
+    position: fixed;
+    top:2rem;
+    right:20px;
+    z-index: 1000;
+}
+
+.rotacao-botao{
+    transform: rotate(-90deg);
+    transform-origin: right center;
+}
+
+.opcoes-acessibilidade{
+    margin-top:10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.opcoes-acessibilidade button{
+    margin-bottom: 5px;
+}
+.apresenta-lista{
+    display: none;
+}
+
+.alto-contraste{
+    background-color: var(--alto-contraste-fundo);
+    color: var(--alto-contraste-texto);
+}
+
+.alto-contraste header,
+.alto-contraste footer,
+.alto-contraste .formulario{
+    background-color: var(--alto-contraste-fundo);
+    color: var(--alto-contraste-texto);
+}
+
+.alto-contraste .nav-link{
+    color: var(--alto-contraste-link);
+}
+
+.alto-contraste .botao-inicio,
+.alto-contraste .formulario button,
+.alto-contraste .btn-primary{
+    background-color: var(--alto-contraste-link);
+    color: var(--alto-contraste-fundo)
+}
+
+.alto-contraste #tropicalia {
+    background: none;
+}
+
+.alto-contraste #galeria {
+    background-color: var(--alto-contraste-fundo);
+}
+.alto-contraste .fundo-galeria {
+    background: none;
 }
