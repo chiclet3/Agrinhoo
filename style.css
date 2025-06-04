@@ -2,7 +2,7 @@ import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100.
 @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
 
 a {
-    color: #ffffff !important; /* Muda a cor de todos os links para vermelho */
+    color: #ffffff !important; 
 }
 
 :root {
