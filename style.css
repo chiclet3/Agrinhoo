@@ -1,6 +1,10 @@
 import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
 
+a {
+    color: #ffffff !important; /* Muda a cor de todos os links para vermelho */
+}
+
 :root {
     --laranja-claro: #2a51ff;
     --alto-contraste-fundo: #1ebba1;
