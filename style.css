@@ -208,3 +208,20 @@ h2 {
 .alto-contraste .fundo-galeria {
     background: none;
 }
+
+@keyframes background-pulse {
+    0% {
+        background-color: #f6f8fa; /* Cor de fundo padrão clara do GitHub */
+    }
+    50% {
+        background-color: #e6e9ee; /* Uma cor um pouco mais escura */
+    }
+    100% {
+        background-color: #f6f8fa; /* Volta para a cor original */
+    }
+}
+
+/* Aplica a animação ao corpo da página (a tela toda) */
+body {
+    animation: background-pulse 4s infinite alternate; /* Nome da animação, duração, repetição e direção */
+}
