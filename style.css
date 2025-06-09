@@ -76,7 +76,16 @@ section {
 .display-4 {
     text-shadow: -5px 5px var(--laranja-claro);
 }
-
+ <header>
+        <h1>Bem-vindo ao Meu Site!</h1>
+    </header>
+    <main>
+        <p>Este é o conteúdo principal da sua página.</p>
+    </main>
+    <footer>
+        <p>&copy; 2025 Meu Site</p>
+    </footer>
+  orm>
 
 #tropicalia {
     position: relative;
@@ -124,7 +133,7 @@ section {
 
 .banner-button {
     display: inline-block;
-    background-color: #007bff; /* Cor do botão */
+    background-color: #356e44; /* Cor do botão */
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -133,7 +142,7 @@ section {
 }
 
 .banner-button:hover {
-    background-color: #0056b3;
+    background-color: #356e44;
 }gin-top: 3rem;
     margin-bottom: 3rem;
     background: url('img/flor.png') top right no-repeat,
