@@ -322,7 +322,7 @@ body {
 
 .banner-button {
     display: inline-block;
-    background-color: #007bff; /* Cor do botão */
+    background-color: #4d6639; 
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -331,5 +331,5 @@ body {
 }
 
 .banner-button:hover {
-    background-color: #0056b3;
+    background-color: #4d6639;
 }
