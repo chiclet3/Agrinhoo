@@ -111,9 +111,6 @@ section {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-/* Removido o background das flores para tropicalia, pois a imagem lateral foi removida. */
-/* Se quiser manter um fundo animado, pode adicionar uma animação aqui */
-
 #tropicalia .container {
     display: flex;
     align-items: center;
@@ -135,7 +132,6 @@ section {
 #tropicalia p {
     color: var(--cor-texto-escuro); /* Cor do texto da seção tropicalia */
 }
-
 
 #galeria {
     border-radius: 10px;
@@ -201,7 +197,6 @@ section {
 .form-control::placeholder {
     color: rgba(66, 66, 66, 0.7); /* Cor do placeholder */
 }
-
 
 /* Acessibilidade */
 .menu-acessibilidade {
@@ -300,4 +295,4 @@ section {
 /* Removendo estilos desnecessários ou duplicados */
 .main-banner {
     display: none; /* Este bloco estava duplicado e sem uso no seu HTML, então desabilitei */
-        }
+}
