@@ -1,10 +1,4 @@
-@
-    50% {
-        background-color: var(--cor-fundo-medio);
-    }
-    100% {
-        background-color: var(--cor-fundo-claro);
-    }import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
 
 /* Variáveis de cores */
@@ -12,65 +6,83 @@
     --cor-primaria: #4CAF50; /* Verde Agrinho */
     --cor-secundaria: #8BC34A; /* Verde mais claro */
     --cor-terciaria: #CDDC39; /* Amarelo esverdeado */
-    --cor-fundo-claro: #F1F8E9; /* Fundo muito claro */
-    --cor-fundo-medio: #C5E1A5; /* Fundo médio */
+    --cor-fundo-claro: #F1F8E9; /* Fundo muito claro (usado para seções claras) */
+    --cor-fundo-medio: #C5E1A5; /* Fundo médio (usado para formulário, etc.) */
     --cor-fundo-escuro: #388E3C; /* Fundo escuro para seções */
-    --cor-texto-claro: #000000; /* Texto para fundos escuros */
-    --cor-texto-escuro: #424242; /* Texto para fundos claros */
+    --cor-texto-claro: #FFFFFF; /* Branco: Texto para fundos escuros */
+    --cor-texto-escuro: #424242; /* Preto/Cinza Escuro: Texto para fundos claros */
     --cor-sombra: #689F38; /* Sombra para títulos */
     --cor-botao: #7CB342; /* Cor de botão */
     --cor-link: #33691E; /* Cor de link */
+    --cor-fundo-pagina: #E8F5E9; /* NOVO: Cor de fundo para o body (verde claro pastel) */
+    --cor-fundo-texto-claro: rgba(255, 255, 255, 0.9); /* NOVO: Fundo semi-transparente claro para texto em fundos escuros */
+    --cor-fundo-texto-escuro: rgba(241, 248, 233, 0.8); /* NOVO: Fundo semi-transparente da cor --cor-fundo-claro para texto em fundos claros */
 
-    /* Variáveis de acessibilidade (mantidas, mas ajustadas para a nova paleta) */
+
+    /* Variáveis de acessibilidade */
     --alto-contraste-fundo: #000000;
     --alto-contraste-texto: #FFFF00;
     --alto-contraste-link: #00FFFF;
 }
 
+/* Estilos Globais e Reset Básico */
+* {
+    box-sizing: border-box;
+}
+
 a {
     color: var(--cor-texto-claro) !important;
+    text-decoration: none;
 }
 
 body {
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--cor-fundo-claro);
-    animation: background-pulse 4s infinite alternate; /* Animação adicionada */
-}
-
-header {
-    background-color: var(--cor-fundo-escuro); /* Cor de fundo do cabeçalho */
+    background-color: var(--cor-fundo-pagina); /* NOVO: Cor de fundo principal da página */
+    animation: background-pulse 4s infinite alternate;
+    color: var(--cor-texto-escuro);
 }
 
 section {
     padding-bottom: 5rem;
+    padding-top: 5rem;
+}
+
+/* Header e Navegação */
+header {
+    background-color: var(--cor-fundo-escuro);
+    padding: 2.5rem 0;
+}
+
+.nav-img {
+    max-height: 80px;
+    width: auto;
 }
 
 .nav-link {
     color: var(--cor-texto-claro) !important;
     font-weight: 600;
     transition: color 0.3s ease;
+    text-transform: uppercase;
+    margin: 0 10px;
 }
 
 .nav-link:hover {
-    color: var(--cor-terciaria) !important; /* Cor ao passar o mouse */
+    color: var(--cor-terciaria) !important;
 }
 
-.banner { /* Mantido do seu estilo interno, mas pode ser ajustado aqui */
+/* Banner Principal */
+.banner {
     width: 100%;
     max-height: 300px;
     object-fit: cover;
     display: block;
     margin-bottom: 20px;
 }
-.nav-img { /* Mantido do seu estilo interno */
-    max-height: 80px;
-    width: auto;
-}
 
-/* Estilos para o fundo da seção "Início" */
+/* Seção Início */
 .inicio-fundo {
-    background-image: url('img/4965007.jpg'); /* Imagem de fundo */
+    background-image: url('https://via.placeholder.com/1500x800/388E3C/FFFFFF?text=Fundo+Rural');
     background-size: cover;
     background-position: center;
     border-radius: 80px;
@@ -78,30 +90,35 @@ section {
     height: 606px;
     padding: 40px;
     margin: 0 auto;
-    /* Ajustado para garantir que a imagem não ofusque o texto e a cor de fallback */
-    background-color: rgba(56, 142, 60, 0.8); /* Cor de fundo escura com transparência para o texto aparecer */
-    background-blend-mode: multiply; /* Mistura a imagem com a cor de fundo */
+    background-color: rgba(56, 142, 60, 0.8);
+    background-blend-mode: multiply;
+    animation: fadeInScale 1s ease-out forwards;
+    display: flex;
+    align-items: center;
 }
 
-/* Estilos para o texto dentro da seção de boas-vindas */
+.inicio-fundo h1 {
+    color: var(--cor-texto-claro);
+    text-shadow: -5px 5px var(--cor-sombra);
+    margin-bottom: 1.5rem !important;
+}
+
 .esquerda-conteudo p {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: var(--cor-texto-claro); /* Garante que o texto seja branco para contrastar */
-}
-/* Estilos para a imagem da seção de boas-vindas */
-.img-inicio { /* Mantido do seu estilo interno */
-    max-height: 400px;
-    object-fit: contain;
+    color: var(--cor-texto-claro);
+    background-color: var(--cor-fundo-texto-claro); /* NOVO: Fundo para o texto claro */
+    padding: 10px 15px; /* Preenchimento em torno do texto */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    display: inline-block; /* Para que o background não ocupe a largura total */
+    margin-bottom: 10px; /* Espaçamento entre parágrafos */
 }
 
-/* Posicionamento para a imagem à direita (ajustado para melhor fluxo) */
-/* Este bloco foi movido para o CSS principal e ajustado */
 .img-inicio {
-    position: relative;
-    width: 100%;
     max-height: 400px;
     object-fit: contain;
+    width: 100%;
 }
 
 .esquerda-conteudo {
@@ -109,7 +126,6 @@ section {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    color: var(--cor-texto-claro); /* Texto dentro da seção de início */
 }
 
 .botao-inicio {
@@ -123,34 +139,23 @@ section {
     align-items: center;
     color: var(--cor-texto-claro);
     transition: background-color 0.3s ease;
+    font-weight: 600;
 }
 
 .botao-inicio:hover {
     background-color: var(--cor-link);
 }
 
-.display-4 {
-    text-shadow: -5px 5px var(--cor-sombra);
-    color: var(--cor-texto-claro);
-}
-
+/* Seção "Como fazer essa conexão?" (Tropicalia) */
 #tropicalia {
     position: relative;
-    padding-top: 5rem;
     margin-top: 3rem;
     margin-bottom: 3rem;
     background-color: var(--cor-fundo-claro);
     border-radius: 15px;
     padding: 2rem;
-    box-shadow: 0 4px 8px rgb(0, 0, 0);
-}
-
-#tropicalia .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideInUp 1s ease-out forwards;
 }
 
 #tropicalia h2 {
@@ -161,41 +166,113 @@ section {
     color: var(--cor-texto-escuro);
     text-shadow: -3px 3px var(--cor-sombra);
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 #tropicalia p {
     color: var(--cor-texto-escuro);
+    line-height: 1.7;
+    background-color: var(--cor-fundo-texto-escuro); /* NOVO: Fundo para o texto escuro */
+    padding: 12px 18px; /* Preenchimento */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Sombra */
+    display: inline-block;
+    width: 100%; /* Para que o background ocupe a largura do container */
 }
 
+/* Nova Seção Campo e Cidade */
+#campo-cidade {
+    padding: 4rem 0;
+    background-color: var(--cor-fundo-claro);
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+#campo-cidade h2 {
+    color: var(--cor-texto-escuro);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-shadow: -3px 3px var(--cor-sombra);
+}
+
+.campo-cidade-item {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.campo-cidade-item:hover {
+    transform: translateY(-10px);
+}
+
+.campo-cidade-item img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.campo-cidade-item h3 {
+    color: var(--cor-primaria);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.campo-cidade-item p {
+    color: var(--cor-texto-escuro);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    background-color: var(--cor-fundo-texto-escuro); /* NOVO: Fundo para o texto aqui também */
+    padding: 8px 12px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    display: inline-block;
+}
+
+/* Seção Galeria */
 #galeria {
     border-radius: 10px;
     background-color: var(--cor-fundo-escuro);
     padding: 2rem;
+    animation: fadeIn 1.5s ease-out forwards;
 }
 
 #galeria h2 {
     color: var(--cor-texto-claro);
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
+    margin-bottom: 2rem;
 }
 
 .fundo-galeria {
     background: none;
 }
 
+/* Seção Contato */
 #contato {
-    background-image: url('img/4965007.jpg');
+    background-image: url('https://via.placeholder.com/1500x800/388E3C/FFFFFF?text=Fundo+Contato');
     background-size: cover;
     background-position: center;
     padding: 4rem 0;
     border-radius: 10px;
+    animation: fadeIn 1.5s ease-out forwards;
 }
 
 .formulario {
     background-color: var(--cor-fundo-medio);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgb(0, 0, 0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     font-weight: bold;
     color: var(--cor-texto-escuro);
 }
@@ -246,12 +323,11 @@ section {
     background-color: var(--cor-botao) !important;
     border: none;
     color: var(--cor-texto-claro);
-    transition: background-color 0.3s ease; /* Adicionando transição */
+    transition: background-color 0.3s ease;
 }
 .rotacao-botao:hover {
-    background-color: var(--cor-link) !important; /* Cor ao passar o mouse */
+    background-color: var(--cor-link) !important;
 }
-
 
 .opcoes-acessibilidade {
     margin-top: 10px;
@@ -264,17 +340,17 @@ section {
     background-color: var(--cor-botao) !important;
     border: none;
     color: var(--cor-texto-claro);
-    transition: background-color 0.3s ease; /* Adicionando transição */
+    transition: background-color 0.3s ease;
 }
 .opcoes-acessibilidade button:hover {
-    background-color: var(--cor-link) !important; /* Cor ao passar o mouse */
+    background-color: var(--cor-link) !important;
 }
-
 
 .apresenta-lista {
     display: none;
 }
 
+/* Estilos de Alto Contraste */
 .alto-contraste {
     background-color: var(--alto-contraste-fundo) !important;
     color: var(--alto-contraste-texto) !important;
@@ -311,13 +387,51 @@ section {
     background: none !important;
 }
 
-/* Animações */
+/* Animações CSS */
 @keyframes background-pulse {
     0% {
+        background-color: var(--cor-fundo-pagina); /* Usa a nova cor de fundo da página */
+    }
+    50% {
         background-color: var(--cor-fundo-claro);
+    }
+    100% {
+        background-color: var(--cor-fundo-pagina); /* Retorna à nova cor de fundo da página */
     }
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ScrollReveal.js Classes */
 .animated-element {
     opacity: 0;
     transform: translateY(20px);
@@ -331,4 +445,22 @@ section {
 
 .main-banner {
     display: none;
+}
+
+/* Estilos de Rodapé (já estavam lá, mas reforcei a cor do fundo) */
+footer {
+    text-align: center;
+    padding: 3rem;
+    font-style: italic;
+    background-color: var(--cor-fundo-escuro); /* Fundo escuro para o rodapé */
+}
+
+footer p {
+    color: var(--cor-texto-claro);
+}
+
+footer i {
+    color: var(--cor-texto-claro);
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
 }
