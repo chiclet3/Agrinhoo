@@ -10,65 +10,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Estilos CSS internos para o banner e ajustes gerais */
-        .banner {
-            width: 100%;
-            /* Ocupa 100% da largura da tela */
-            max-height: 300px;
-            /* Limita a altura máxima do banner */
-            object-fit: cover;
-            /* Garante que a imagem cubra a área sem distorcer */
-            display: block;
-            /* Remove o espaço extra abaixo da imagem */
-            margin-bottom: 20px;
-            /* Espaço abaixo do banner */
-        }
-
-        /* Estilos para a imagem do logo na navegação */
-        .nav-img {
-            max-height: 80px;
-            /* Ajuste a altura máxima do logo */
-            width: auto;
-        }
-
-        /* Estilos para o fundo da seção "Início" */
-        .inicio-fundo {
-            background-color: var(--cor-fundo-secao);
-            /* Exemplo de cor de fundo escuro */
-            padding: 30px;
-            /* Espaçamento interno */
-            border-radius: 8px;
-            /* Cantos arredondados */
-        }
-
-        /* Estilos para o texto dentro da seção de boas-vindas */
-        .esquerda-conteudo p {
-            font-size: 1.1rem;
-            /* Tamanho de fonte maior para parágrafos */
-            line-height: 1.6;
-            /* Espaçamento entre linhas */
-        }
-
-        /* Estilos para a imagem da seção de boas-vindas */
-        .img-inicio {
-            max-height: 400px;
-            /* Altura máxima para a imagem */
-            object-fit: contain;
-            /* Ajuste da imagem dentro do seu contêiner */
-        }
-    </style>
-</head>
+    </head>
 
 <body>
-    <img src="https://via.placeholder.com/1500x300/81C784/FFFFFF?text=Seu+Banner+Aqui" alt="Banner ilustrativo do site Agrinho" class="banner">
+    <img src="https://via.placeholder.com/1500x300/81C784/FFFFFF?text=Seu+Banner+Aqui" alt="Banner ilustrativo do site Agrinho" class="banner animated-element">
 
     <header class="p-5">
         <nav class="container d-flex justify-content-between align-items-center">
-            <img src="https://raw.githubusercontent.com/chiclet3/Agrinhoo/refs/heads/main/encantador-celeiro-vermelho-em-um-cenario-pastoral_1308-165962.avif"
+            <img src="https://raw.githubusercontent.com/chiclet3/Agrinhoo/refs/heads/main/encantador-celeiro-red-pastoral-scene_1308-165962.avif"
                 class="nav-img" loading="lazy" alt="Logo Agrinho: um celeiro vermelho encantador em cenário pastoral">
             <ul class="nav mt-5">
                 <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tropicalia">Conexão</a></li>
+                <li class="nav-item"><a class="nav-link" href="#campo-cidade">Campo & Cidade</a></li>
                 <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
             </ul>
@@ -84,13 +38,13 @@
     </header>
 
     <main class="container my-5">
-        <section id="inicio" class="my-5">
+        <section id="inicio" class="my-5 animated-element">
             <div class="inicio-fundo">
-                <h1 class="display-4 text-white fst-italic fw-bold text-center mb-4">Boas-vindas ao Agrinho</h1>
+                <h1 class="display-4 fst-italic fw-bold text-center mb-4">Boas-vindas ao Agrinho</h1>
                 <div class="d-flex flex-column-reverse flex-md-row justify-content-between align-items-center">
-                    <div class="col-md-6 esquerda-conteudo text-white mt-4 mt-md-0">
-                        <p>A dicotomia entre campo e cidade é um dos temas mais perenes quando se discute estilos de vida, desenvolvimento social e econômico. 
-                            Longe de serem meros opostos geográficos, esses dois ambientes representam complexas teias de relações humanas, 
+                    <div class="col-md-6 esquerda-conteudo mt-4 mt-md-0">
+                        <p>A dicotomia entre campo e cidade é um dos temas mais perenes quando se discute estilos de vida, desenvolvimento social e econômico.
+                            Longe de serem meros opostos geográficos, esses dois ambientes representam complexas teias de relações humanas,
                             infraestruturas e valores, cada um com suas singularidades e desafios.</p>
                         <p>Explorar as nuances de ambos os mundos nos permite compreender melhor as escolhas, os desafios e as oportunidades que cada um oferece.
                             A vida no campo, com seu ritmo mais calmo e contato direto com a natureza, contrasta com a efervescência e a diversidade da vida urbana.</p>
@@ -105,12 +59,12 @@
             </div>
         </section>
 
-        <section id="tropicalia" class="my-5 pt-6 secao-tropicalia" tabindex="0"
+        <section id="tropicalia" class="my-5 secao-tropicalia animated-element" tabindex="0"
             aria-label="Seção explicativa sobre a conexão campo-cidade">
             <div class="container d-flex align-items-center justify-content-center">
                 <div class="col-9">
-                    <h2 class="display-4 fst-italic fw-bold text-center mb-4 text-dark">Como fazer essa conexão?</h2>
-                    <p class="p-2 text-dark">A conexão entre campo e cidade pode ser feita por meio de políticas públicas integradas,
+                    <h2 class="display-4 fst-italic fw-bold text-center mb-4">Como fazer essa conexão?</h2>
+                    <p class="p-2">A conexão entre campo e cidade pode ser feita por meio de políticas públicas integradas,
                         que valorizem tanto o potencial produtivo das áreas rurais quanto a capacidade de escoamento inovação e consumo dos centros urbanos.
                         Investimentos em infraestrutura de transporte, tecnologia da informação e educação são caminhos eficazes para aproximar essas realidades.
                         Por exemplo, o fortalecimento da agricultura familiar com apoio logístico e tecnológico das cidades pode gerar benefícios mútuos —
@@ -122,39 +76,72 @@
             </div>
         </section>
 
-        <section id="galeria" tabindex="0" aria-label="Seção de galeria de imagens">
-            <h2 class="text-center pt-5 text-light">Galeria</h2>
-            <div class="container p-3 mt-3 fundo-galeria ">
-                <div class="row justify-content-md-center">
-                    <div class="col-md-4">
-                        <img src="img/lossy-page1-640px-Jorge_Ben_e_o_Trio_Mocotó_no_Teatro_da_Lagoa,_1971.tif.jpg"
-                            class="img-fluid rounded-5" loading="lazy" alt="Jorge Ben e o Trio Mocotó">
+        <section id="campo-cidade" class="my-5 animated-element">
+            <h2 class="display-4 fst-italic fw-bold text-center mb-4">Campo e Cidade: Dois Mundos, Uma Conexão</h2>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 d-flex">
+                        <div class="campo-cidade-item">
+                            <img src="https://via.placeholder.com/400x300/66BB6A/FFFFFF?text=Vida+no+Campo" alt="Vida no Campo: paisagem com lavoura">
+                            <h3>A Calma do Campo</h3>
+                            <p>A vida no campo é marcada pelo ritmo da natureza, pela produção de alimentos frescos e pela conexão direta com a terra. É um ambiente de tranquilidade e trabalho árduo, essencial para a nossa subsistência.</p>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-        
-    
+                    <div class="col-md-6 col-lg-4 d-flex">
+                        <div class="campo-cidade-item">
+                            <img src="https://via.placeholder.com/400x300/42A5F5/FFFFFF?text=Crescimento+Urbano" alt="Crescimento Urbano: prédios modernos na cidade">
+                            <h3>A Efervescência da Cidade</h3>
+                            <p>A cidade, por sua vez, é um centro de inovação, cultura e diversidade. Oferece oportunidades, serviços e uma vida social agitada, sendo o polo para o desenvolvimento econômico e tecnológico.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 d-flex">
+                        <div class="campo-cidade-item">
+                            <img src="https://via.placeholder.com/400x300/FFD54F/FFFFFF?text=Pontes+de+Conexao" alt="Pontes de Conexão: mão segurando broto e mapa da cidade ao fundo">
+                            <h3>Construindo Pontes</h3>
+                            <p>Mais do que opostos, campo e cidade são complementares. A conexão entre eles se fortalece com o intercâmbio de conhecimentos, tecnologias e recursos, promovendo um desenvolvimento mais equilibrado para todos.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contato">
+        <section id="galeria" tabindex="0" aria-label="Seção de galeria de imagens" class="animated-element">
+            <h2 class="text-center pt-5">Galeria</h2>
+            <div class="container p-3 mt-3 fundo-galeria ">
+                <div class="row justify-content-md-center">
+                    <div class="col-md-4">
+                        <img src="https://via.placeholder.com/640x480/B3E5FC/FFFFFF?text=Imagem+Galeria+1"
+                            class="img-fluid rounded-5" loading="lazy" alt="Imagem da Galeria 1">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="https://via.placeholder.com/640x480/C8E6C9/FFFFFF?text=Imagem+Galeria+2"
+                            class="img-fluid rounded-5" loading="lazy" alt="Imagem da Galeria 2">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="https://via.placeholder.com/640x480/FFF9C4/FFFFFF?text=Imagem+Galeria+3"
+                            class="img-fluid rounded-5" loading="lazy" alt="Imagem da Galeria 3">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="animated-element">
             <div class="container p-5 d-flex justify-content-center">
                 <div class="col-md-8 col-lg-10 rounded-5 formulario">
-                    <h2 class="mb-3 text-light">Entre em contato</h2>
+                    <h2 class="mb-3">Entre em contato</h2>
                     <form>
                         <div class="form-group mb-3">
-                            <label for="nome" class="text-light">Nome</label>
+                            <label for="nome">Nome</label>
                             <input type="text" id="nome" name="nome" class="form-control rounded-3 mt-1"
                                 placeholder="Digite seu nome completo">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="email" class="text-light">Email</label>
+                            <label for="email">Email</label>
                             <input type="email" id="email" name="email" class="form-control rounded-3 mt-1"
                                 placeholder="Digite seu email">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="mensagem" class="text-light">Mensagem</label>
+                            <label for="mensagem">Mensagem</label>
                             <textarea id="mensagem" name="mensagem" class="form-control rounded-4 mt-2" rows="4"
                                 placeholder="Escreva sua mensagem"></textarea>
                         </div>
@@ -169,11 +156,11 @@
     </main>
 
     <footer class="text-center p-3 fst-italic">
-        <p class="text-light">Acesse nossas redes:</p>
-        <i class="bi bi-whatsapp text-light"></i>
-        <i class="bi bi-instagram text-light"></i>
-        <i class="bi bi-tiktok text-light"></i>
-        <p class="mt-3 text-light">Desenvolvido por Start by Alura. Projeto fictício sem fins comerciais.</p>
+        <p>Acesse nossas redes:</p>
+        <i class="bi bi-whatsapp"></i>
+        <i class="bi bi-instagram"></i>
+        <i class="bi bi-tiktok"></i>
+        <p class="mt-3">Desenvolvido por Start by Alura. Projeto fictício sem fins comerciais.</p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>

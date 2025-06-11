@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@
+    50% {
+        background-color: var(--cor-fundo-medio);
+    }
+    100% {
+        background-color: var(--cor-fundo-claro);
+    }import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
 
 /* Variáveis de cores */
@@ -308,12 +314,6 @@ section {
 /* Animações */
 @keyframes background-pulse {
     0% {
-        background-color: var(--cor-fundo-claro);
-    }
-    50% {
-        background-color: var(--cor-fundo-medio);
-    }
-    100% {
         background-color: var(--cor-fundo-claro);
     }
 }
