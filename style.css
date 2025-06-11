@@ -107,7 +107,7 @@ header {
     font-size: 1.1rem;
     line-height: 1.6;
     color: var(--cor-texto-claro);
-    background-color: var(--cor-fundo-texto-claro); /* NOVO: Fundo para o texto claro */
+    background-color: #8BC34A/
     padding: 10px 15px; /* Preenchimento em torno do texto */
     border-radius: 8px; /* Cantos arredondados */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
