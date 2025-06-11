@@ -9,7 +9,7 @@
     --cor-fundo-claro: #F1F8E9; /* Fundo muito claro */
     --cor-fundo-medio: #C5E1A5; /* Fundo médio */
     --cor-fundo-escuro: #388E3C; /* Fundo escuro para seções */
-    --cor-texto-claro: #FFFFFF; /* Texto para fundos escuros */
+    --cor-texto-claro: #000000; /* Texto para fundos escuros */
     --cor-texto-escuro: #424242; /* Texto para fundos claros */
     --cor-sombra: #689F38; /* Sombra para títulos */
     --cor-botao: #7CB342; /* Cor de botão */
