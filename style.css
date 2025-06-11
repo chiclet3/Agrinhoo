@@ -98,7 +98,7 @@ header {
 }
 
 .inicio-fundo h1 {
-    color: var(--cor-texto-claro);
+    color: #689F38;
     text-shadow: -5px 5px var(--cor-sombra);
     margin-bottom: 1.5rem !important;
 }
