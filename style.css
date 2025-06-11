@@ -151,7 +151,7 @@ header {
     position: relative;
     margin-top: 3rem;
     margin-bottom: 3rem;
-    background-color: var(--cor-fundo-claro);
+    background-color: #689F38;
     border-radius: 15px;
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -172,7 +172,7 @@ header {
 #tropicalia p {
     color: var(--cor-texto-escuro);
     line-height: 1.7;
-    background-color: var(--cor-fundo-texto-escuro); /* NOVO: Fundo para o texto escuro */
+    background-color: #689F38/
     padding: 12px 18px; /* Preenchimento */
     border-radius: 10px; /* Cantos arredondados */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Sombra */
