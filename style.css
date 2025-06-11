@@ -14,9 +14,9 @@
     --cor-sombra: #689F38; /* Sombra para títulos */
     --cor-botao: #7CB342; /* Cor de botão */
     --cor-link: #33691E; /* Cor de link */
-    --cor-fundo-pagina: #E8F5E9; /* NOVO: Cor de fundo para o body (verde claro pastel) */
-    --cor-fundo-texto-claro: rgba(255, 255, 255, 0.9); /* NOVO: Fundo semi-transparente claro para texto em fundos escuros */
-    --cor-fundo-texto-escuro: rgba(241, 248, 233, 0.8); /* NOVO: Fundo semi-transparente da cor --cor-fundo-claro para texto em fundos claros */
+    --cor-fundo-pagina: #E8F5E9; /* Cor de fundo para o body (verde claro pastel) */
+    --cor-fundo-texto-claro: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente claro para texto em fundos escuros */
+    --cor-fundo-texto-escuro: rgba(241, 248, 233, 0.8); /* Fundo semi-transparente da cor --cor-fundo-claro para texto em fundos claros */
 
 
     /* Variáveis de acessibilidade */
@@ -38,14 +38,14 @@ a {
 body {
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
-    background-color: #8BC34A/
+    background-color: var(--cor-fundo-pagina);
     animation: background-pulse 4s infinite alternate;
     color: var(--cor-texto-escuro);
 }
 
 section {
-    padding-bottom: 5rem;
-    padding-top: 5rem;
+    padding: 5rem 0; /* Unificado padding-top e padding-bottom para todas as seções */
+    margin-bottom: 2rem; /* Espaçamento entre seções */
 }
 
 /* Header e Navegação */
@@ -87,59 +87,68 @@ header {
     background-position: center;
     border-radius: 80px;
     width: 100%;
-    height: 606px;
+    /* Removido height fixo para ser mais flexível */
+    min-height: 550px; /* Altura mínima para garantir espaço */
     padding: 40px;
     margin: 0 auto;
     background-color: rgba(56, 142, 60, 0.8);
     background-blend-mode: multiply;
     animation: fadeInScale 1s ease-out forwards;
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Conteúdo em coluna para melhor organização interna */
+    justify-content: center; /* Centraliza verticalmente o conteúdo */
+    align-items: center; /* Centraliza horizontalmente o conteúdo */
+    text-align: center; /* Centraliza o texto */
 }
 
 .inicio-fundo h1 {
-    color: #689F38;
+    color: var(--cor-texto-claro);
     text-shadow: -5px 5px var(--cor-sombra);
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 2rem !important; /* Aumentado espaçamento */
+    font-size: 3.5rem; /* Ajustado tamanho da fonte */
+}
+
+.esquerda-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo (p, botão) */
+    gap: 1.5rem; /* Aumentado espaçamento entre elementos */
+    max-width: 800px; /* Limita a largura do conteúdo para melhor leitura */
+    margin: 0 auto; /* Centraliza o bloco de conteúdo */
 }
 
 .esquerda-conteudo p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1.2rem; /* Aumentado um pouco o tamanho da fonte */
+    line-height: 1.7; /* Melhorado espaçamento entre linhas */
     color: var(--cor-texto-claro);
-    background-color: #8BC34A/
-    padding: 10px 15px; /* Preenchimento em torno do texto */
-    border-radius: 8px; /* Cantos arredondados */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    display: inline-block; /* Para que o background não ocupe a largura total */
-    margin-bottom: 10px; /* Espaçamento entre parágrafos */
+    background-color: var(--cor-fundo-texto-claro);
+    padding: 15px 25px; /* Aumentado padding */
+    border-radius: 12px; /* Mais arredondado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
+    display: block; /* Ocupa a largura total dentro do seu container */
+    margin-bottom: 15px; /* Espaçamento entre parágrafos */
 }
 
 .img-inicio {
     max-height: 400px;
     object-fit: contain;
     width: 100%;
-}
-
-.esquerda-conteudo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    margin-top: 3rem; /* Espaçamento da imagem em relação ao texto */
 }
 
 .botao-inicio {
     background-color: var(--cor-botao);
     border-radius: 30px;
     border: none;
-    width: 14em;
-    height: 3em;
+    width: 16em; /* Ligeiramente maior */
+    height: 3.5em; /* Ligeiramente maior */
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--cor-texto-claro);
     transition: background-color 0.3s ease;
-    font-weight: 600;
+    font-weight: 700; /* Mais negrito */
+    font-size: 1.1rem;
 }
 
 .botao-inicio:hover {
@@ -147,43 +156,43 @@ header {
 }
 
 /* Seção "Como fazer essa conexão?" (Tropicalia) */
-#Como fazer essa conexão {
-    position: relative;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    background-color: #689F38;
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+#tropicalia {
+    background-color: var(--cor-fundo-claro);
+    border-radius: 20px; /* Mais arredondado */
+    padding: 3rem; /* Aumentado padding */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Sombra mais forte */
     animation: slideInUp 1s ease-out forwards;
+    margin: 4rem auto; /* Centraliza e adiciona margem superior/inferior */
+    max-width: 900px; /* Limita a largura para melhor leitura */
 }
 
 #tropicalia h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.5em;
+    font-size: 3em; /* Ajustado tamanho da fonte */
     font-style: italic;
     font-weight: bold;
     color: var(--cor-texto-escuro);
-    text-shadow: -3px 3px var(--cor-sombra);
+    text-shadow: -4px 4px var(--cor-sombra); /* Sombra mais pronunciada */
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem; /* Aumentado espaçamento */
 }
 
 #tropicalia p {
     color: var(--cor-texto-escuro);
-    line-height: 1.7;
-    background-color: #689F38/
-    padding: 12px 18px; /* Preenchimento */
-    border-radius: 10px; /* Cantos arredondados */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Sombra */
-    display: inline-block;
-    width: 100%; /* Para que o background ocupe a largura do container */
+    line-height: 1.8; /* Aumentado espaçamento entre linhas */
+    font-size: 1.15rem; /* Aumentado um pouco o tamanho da fonte */
+    background-color: var(--cor-fundo-texto-escuro);
+    padding: 20px 30px; /* Aumentado padding */
+    border-radius: 15px; /* Mais arredondado */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
+    display: block; /* Garante que ocupe a largura do container */
+    text-align: justify; /* Justifica o texto para uma aparência mais limpa */
 }
 
 /* Nova Seção Campo e Cidade */
 #campo-cidade {
-    padding: 4rem 0;
     background-color: var(--cor-fundo-claro);
+    padding: 5rem 0; /* Mantido padding padrão */
     animation: fadeIn 1.5s ease-out forwards;
 }
 
@@ -192,18 +201,19 @@ header {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem; /* Aumentado espaçamento */
     text-shadow: -3px 3px var(--cor-sombra);
+    font-size: 3em;
 }
 
 .campo-cidade-item {
     text-align: center;
-    margin-bottom: 2rem;
-    padding: 1.5rem;
+    margin-bottom: 2.5rem; /* Espaçamento entre os cards */
+    padding: 2rem; /* Aumentado padding */
     background-color: #FFFFFF;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    border-radius: 20px; /* Mais arredondado */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra mais forte */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Adicionado transição para sombra */
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -211,51 +221,70 @@ header {
 }
 
 .campo-cidade-item:hover {
-    transform: translateY(-10px);
+    transform: translateY(-15px); /* Efeito de levitar mais pronunciado */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
 }
 
 .campo-cidade-item img {
     max-width: 100%;
-    height: 200px;
+    height: 220px; /* Ligeiramente mais alto */
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 1rem;
+    border-radius: 15px; /* Mais arredondado */
+    margin-bottom: 1.5rem; /* Aumentado espaçamento */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .campo-cidade-item h3 {
     color: var(--cor-primaria);
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem; /* Aumentado espaçamento */
+    font-size: 1.7rem; /* Ligeiramente maior */
 }
 
 .campo-cidade-item p {
     color: var(--cor-texto-escuro);
-    font-size: 0.95rem;
-    line-height: 1.5;
-    background-color: var(--cor-fundo-texto-escuro); /* NOVO: Fundo para o texto aqui também */
-    padding: 8px 12px;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    display: inline-block;
+    font-size: 1rem; /* Ajustado tamanho da fonte */
+    line-height: 1.6;
+    background-color: var(--cor-fundo-texto-escuro);
+    padding: 10px 15px; /* Aumentado padding */
+    border-radius: 8px; /* Mais arredondado */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    display: block; /* Garante que ocupe a largura do card */
+    text-align: justify; /* Justifica o texto */
 }
 
 /* Seção Galeria */
 #galeria {
-    border-radius: 10px;
-    background-color: #638B35;
-    padding: 2rem;
+    border-radius: 20px; /* Mais arredondado */
+    background-color: var(--cor-fundo-escuro);
+    padding: 4rem; /* Aumentado padding */
     animation: fadeIn 1.5s ease-out forwards;
+    margin-top: 4rem; /* Espaçamento da seção anterior */
 }
 
 #galeria h2 {
-    color: #638b35';
+    color: var(--cor-texto-claro);
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem; /* Aumentado espaçamento */
+    font-size: 3em;
+    text-shadow: -3px 3px var(--cor-sombra); /* Mantido a sombra para realce */
 }
 
 .fundo-galeria {
-    background: none;
+    background: none; /* Mantido sem fundo para que as imagens se destaquem no fundo da seção */
+}
+
+/* Ajustes nas imagens da galeria */
+#galeria .img-fluid {
+    border-radius: 15px !important; /* Mais arredondado */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra para destacar as imagens */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#galeria .img-fluid:hover {
+    transform: scale(1.05); /* Leve zoom no hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 /* Seção Contato */
@@ -263,16 +292,17 @@ header {
     background-image: url('https://via.placeholder.com/1500x800/388E3C/FFFFFF?text=Fundo+Contato');
     background-size: cover;
     background-position: center;
-    padding: 4rem 0;
-    border-radius: 10px;
+    padding: 5rem 0; /* Aumentado padding */
+    border-radius: 20px; /* Mais arredondado */
     animation: fadeIn 1.5s ease-out forwards;
+    margin-top: 4rem; /* Espaçamento da seção anterior */
 }
 
 .formulario {
     background-color: var(--cor-fundo-medio);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 3rem; /* Aumentado padding */
+    border-radius: 15px; /* Mais arredondado */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Sombra mais forte */
     font-weight: bold;
     color: var(--cor-texto-escuro);
 }
@@ -281,10 +311,15 @@ header {
     color: var(--cor-texto-escuro);
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
+    margin-bottom: 2rem;
+    font-size: 2.5em;
+    text-shadow: -2px 2px var(--cor-sombra);
 }
 
 .formulario label {
     color: var(--cor-texto-escuro);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
 }
 
 .formulario button {
@@ -293,6 +328,8 @@ header {
     font-weight: bold;
     color: var(--cor-texto-claro);
     transition: background-color 0.3s ease;
+    padding: 0.8rem 1.5rem; /* Ajuste no padding do botão */
+    font-size: 1.1rem;
 }
 
 .formulario button:hover {
@@ -303,6 +340,8 @@ header {
     background-color: var(--cor-fundo-claro);
     border: 1px solid var(--cor-secundaria);
     color: var(--cor-texto-escuro);
+    padding: 0.75rem 1rem; /* Aumentado padding */
+    border-radius: 8px; /* Mais arredondado */
 }
 
 .form-control::placeholder {
@@ -390,13 +429,13 @@ header {
 /* Animações CSS */
 @keyframes background-pulse {
     0% {
-        background-color: var(--cor-fundo-pagina); /* Usa a nova cor de fundo da página */
+        background-color: var(--cor-fundo-pagina);
     }
     50% {
         background-color: var(--cor-fundo-claro);
     }
     100% {
-        background-color: var(--cor-fundo-pagina); /* Retorna à nova cor de fundo da página */
+        background-color: var(--cor-fundo-pagina);
     }
 }
 
@@ -447,12 +486,12 @@ header {
     display: none;
 }
 
-/* Estilos de Rodapé (já estavam lá, mas reforcei a cor do fundo) */
+/* Estilos de Rodapé */
 footer {
     text-align: center;
     padding: 3rem;
     font-style: italic;
-    background-color: var(--cor-fundo-escuro); /* Fundo escuro para o rodapé */
+    background-color: var(--cor-fundo-escuro);
 }
 
 footer p {
