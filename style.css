@@ -50,21 +50,49 @@ section {
     color: var(--cor-terciaria) !important; /* Cor ao passar o mouse */
 }
 
+.banner { /* Mantido do seu estilo interno, mas pode ser ajustado aqui */
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 20px;
+}
+.nav-img { /* Mantido do seu estilo interno */
+    max-height: 80px;
+    width: auto;
+}
+
+/* Estilos para o fundo da seção "Início" */
 .inicio-fundo {
-    background-image: url('img/4965007.jpg');
+    background-image: url('img/4965007.jpg'); /* Imagem de fundo */
     background-size: cover;
-    background-position: center; /* Ajustado para centralizar a imagem */
+    background-position: center;
     border-radius: 80px;
     width: 100%;
     height: 606px;
     padding: 40px;
     margin: 0 auto;
-    background-color: var(--cor-fundo-escuro); /* Adicionado cor de fallback */
+    /* Ajustado para garantir que a imagem não ofusque o texto e a cor de fallback */
+    background-color: rgba(56, 142, 60, 0.8); /* Cor de fundo escura com transparência para o texto aparecer */
+    background-blend-mode: multiply; /* Mistura a imagem com a cor de fundo */
 }
 
-/* Posicionamento para a imagem à direita */
+/* Estilos para o texto dentro da seção de boas-vindas */
+.esquerda-conteudo p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--cor-texto-claro); /* Garante que o texto seja branco para contrastar */
+}
+/* Estilos para a imagem da seção de boas-vindas */
+.img-inicio { /* Mantido do seu estilo interno */
+    max-height: 400px;
+    object-fit: contain;
+}
+
+/* Posicionamento para a imagem à direita (ajustado para melhor fluxo) */
+/* Este bloco foi movido para o CSS principal e ajustado */
 .img-inicio {
-    position: relative; /* Mudado para relativo para melhor fluxo */
+    position: relative;
     width: 100%;
     max-height: 400px;
     object-fit: contain;
@@ -84,7 +112,7 @@ section {
     border: none;
     width: 14em;
     height: 3em;
-    display: flex; /* Para centralizar o texto do botão */
+    display: flex;
     justify-content: center;
     align-items: center;
     color: var(--cor-texto-claro);
@@ -92,12 +120,12 @@ section {
 }
 
 .botao-inicio:hover {
-    background-color: var(--cor-link); /* Escurece um pouco ao passar o mouse */
+    background-color: var(--cor-link);
 }
 
 .display-4 {
-    text-shadow: -5px 5px var(--cor-sombra); /* Sombra de título */
-    color: var(--cor-texto-claro); /* Cor do título principal */
+    text-shadow: -5px 5px var(--cor-sombra);
+    color: var(--cor-texto-claro);
 }
 
 #tropicalia {
@@ -105,10 +133,10 @@ section {
     padding-top: 5rem;
     margin-top: 3rem;
     margin-bottom: 3rem;
-    background-color: var(--cor-fundo-claro); /* Cor de fundo para a seção tropicalia */
-    border-radius: 15px; /* Adicionado um leve arredondamento */
+    background-color: var(--cor-fundo-claro);
+    border-radius: 15px;
     padding: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #tropicalia .container {
@@ -119,61 +147,61 @@ section {
     z-index: 1;
 }
 
-#tropicalia h2 { /* Estilo do segundo título ajustado para ser igual ao primeiro */
-    font-family: 'Montserrat', sans-serif; /* Usando a mesma fonte do primeiro título */
-    font-size: 2.5em; /* Tamanho similar ao display-4 */
-    font-style: italic; /* Itálico como o primeiro */
-    font-weight: bold; /* Negrito como o primeiro */
-    color: var(--cor-texto-escuro); /* Cor ajustada para o fundo claro da seção */
-    text-shadow: -3px 3px var(--cor-sombra); /* Sombra de título */
-    text-align: center; /* Centraliza o título */
+#tropicalia h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    font-style: italic;
+    font-weight: bold;
+    color: var(--cor-texto-escuro);
+    text-shadow: -3px 3px var(--cor-sombra);
+    text-align: center;
 }
 
 #tropicalia p {
-    color: var(--cor-texto-escuro); /* Cor do texto da seção tropicalia */
+    color: var(--cor-texto-escuro);
 }
 
 #galeria {
     border-radius: 10px;
-    background-color: var(--cor-fundo-escuro); /* Cor de fundo da galeria */
-    padding: 2rem; /* Adicionado padding para a seção da galeria */
+    background-color: var(--cor-fundo-escuro);
+    padding: 2rem;
 }
 
 #galeria h2 {
-    color: var(--cor-texto-claro); /* Cor do título da galeria */
-    font-family: 'Montserrat', sans-serif; /* Consistência da fonte */
+    color: var(--cor-texto-claro);
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
 }
 
 .fundo-galeria {
-    background: none; /* Removido o background de flor para consistência visual */
+    background: none;
 }
 
 #contato {
     background-image: url('img/4965007.jpg');
     background-size: cover;
-    background-position: center; /* Ajustado para centralizar a imagem */
+    background-position: center;
     padding: 4rem 0;
     border-radius: 10px;
 }
 
 .formulario {
-    background-color: var(--cor-fundo-medio); /* Cor de fundo do formulário */
+    background-color: var(--cor-fundo-medio);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     font-weight: bold;
-    color: var(--cor-texto-escuro); /* Cor do texto do formulário */
+    color: var(--cor-texto-escuro);
 }
 
 .formulario h2 {
-    color: var(--cor-texto-escuro); /* Cor do título do formulário */
-    font-family: 'Montserrat', sans-serif; /* Consistência da fonte */
+    color: var(--cor-texto-escuro);
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
 }
 
 .formulario label {
-    color: var(--cor-texto-escuro); /* Cor dos labels do formulário */
+    color: var(--cor-texto-escuro);
 }
 
 .formulario button {
@@ -189,13 +217,13 @@ section {
 }
 
 .form-control {
-    background-color: var(--cor-fundo-claro); /* Cor de fundo dos campos do formulário */
+    background-color: var(--cor-fundo-claro);
     border: 1px solid var(--cor-secundaria);
     color: var(--cor-texto-escuro);
 }
 
 .form-control::placeholder {
-    color: rgba(66, 66, 66, 0.7); /* Cor do placeholder */
+    color: rgba(66, 66, 66, 0.7);
 }
 
 /* Acessibilidade */
@@ -212,7 +240,12 @@ section {
     background-color: var(--cor-botao) !important;
     border: none;
     color: var(--cor-texto-claro);
+    transition: background-color 0.3s ease; /* Adicionando transição */
 }
+.rotacao-botao:hover {
+    background-color: var(--cor-link) !important; /* Cor ao passar o mouse */
+}
+
 
 .opcoes-acessibilidade {
     margin-top: 10px;
@@ -225,7 +258,12 @@ section {
     background-color: var(--cor-botao) !important;
     border: none;
     color: var(--cor-texto-claro);
+    transition: background-color 0.3s ease; /* Adicionando transição */
 }
+.opcoes-acessibilidade button:hover {
+    background-color: var(--cor-link) !important; /* Cor ao passar o mouse */
+}
+
 
 .apresenta-lista {
     display: none;
@@ -241,7 +279,7 @@ section {
 .alto-contraste .formulario,
 .alto-contraste .inicio-fundo,
 .alto-contraste #galeria,
-.alto-contraste #contato { /* Adicionado seções para alto contraste */
+.alto-contraste #contato {
     background-color: var(--alto-contraste-fundo) !important;
     color: var(--alto-contraste-texto) !important;
 }
@@ -260,7 +298,7 @@ section {
 }
 
 .alto-contraste #tropicalia {
-    background: var(--alto-contraste-fundo) !important; /* Ajustado para fundo de alto contraste */
+    background: var(--alto-contraste-fundo) !important;
 }
 
 .alto-contraste .fundo-galeria {
@@ -280,8 +318,7 @@ section {
     }
 }
 
-/* Animação para elementos que entram na tela (usando ScrollReveal.js no script.js) */
-.animated-element { /* Classe a ser adicionada a elementos que você quer animar com ScrollReveal */
+.animated-element {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -292,7 +329,6 @@ section {
     transform: translateY(0);
 }
 
-/* Removendo estilos desnecessários ou duplicados */
 .main-banner {
-    display: none; /* Este bloco estava duplicado e sem uso no seu HTML, então desabilitei */
+    display: none;
 }
