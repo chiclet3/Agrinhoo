@@ -242,13 +242,13 @@ header {
 /* Seção Galeria */
 #galeria {
     border-radius: 10px;
-    background-color: var(--cor-fundo-escuro);
+    background-color: #638B35;
     padding: 2rem;
     animation: fadeIn 1.5s ease-out forwards;
 }
 
 #galeria h2 {
-    color: var(--cor-texto-claro);
+    color: #638b35';
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     margin-bottom: 2rem;
