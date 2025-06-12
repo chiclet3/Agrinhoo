@@ -401,7 +401,7 @@ header {
 .alto-contraste .inicio-fundo,
 .alto-contraste #galeria,
 .alto-contraste #contato {
-    background-color: var(--alto-contraste-fundo) !important;
+    background-color: #689F38 !important;
     color: var(--alto-contraste-texto) !important;
 }
 
