@@ -40,7 +40,7 @@ a {
 body {
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--cor-fundo-pagina);
+    background: #8BC34A;
     animation: background-pulse 4s infinite alternate;
     color: var(--cor-texto-escuro);
 }
