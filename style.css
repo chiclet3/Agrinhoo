@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+
 /* Variáveis de cores */
 :root {
     --cor-primaria: #4CAF50; /* Verde Agrinho */
@@ -13,9 +16,9 @@
     --cor-link: #33691E; /* Cor de link */
     --cor-fundo-pagina: #E8F5E9; /* Cor de fundo para o body (verde claro pastel) */
     /* ALTERAÇÃO: Fundo semi-transparente MAIS ESCURO (usando cor-fundo-escuro) para texto em fundos escuros */
-    --cor-fundo-texto-claro: rgba(56, 142, 60, 0.7); /* Usando --cor-fundo-escuro com transparência */
+    --cor-fundo-texto-claro: rgba(56, 142, 60, 0.7); /* Usando --cor-fundo-escuro com transparência de 70% */
     /* ALTERAÇÃO: Fundo semi-transparente MAIS ESCURO (usando cor-primaria) para texto em fundos claros */
-    --cor-fundo-texto-escuro: rgba(76, 175, 80, 0.7); /* Usando --cor-primaria com transparência */
+    --cor-fundo-texto-escuro: rgba(76, 175, 80, 0.7); /* Usando --cor-primaria com transparência de 70% */
 
 
     /* Variáveis de acessibilidade */
@@ -49,7 +52,7 @@ section {
 
 /* Header e Navegação */
 header {
-    background-color: #7CB342; /* Cor direta para o header */
+    background-color: #7CB342; /* Cor direta para o cabeçalho */
     padding: 2.5rem 0;
 }
 
@@ -86,7 +89,6 @@ header {
     background-position: center;
     border-radius: 80px;
     width: 100%;
-    /* Removido height fixo para ser mais flexível */
     min-height: 550px; /* Altura mínima para garantir espaço */
     padding: 40px;
     margin: 0 auto;
