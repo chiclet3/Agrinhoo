@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
-
 /* Variáveis de cores */
 :root {
     --cor-primaria: #4CAF50; /* Verde Agrinho */
@@ -15,8 +12,10 @@
     --cor-botao: #7CB342; /* Cor de botão */
     --cor-link: #33691E; /* Cor de link */
     --cor-fundo-pagina: #E8F5E9; /* Cor de fundo para o body (verde claro pastel) */
-    --cor-fundo-texto-claro: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente claro para texto em fundos escuros */
-    --cor-fundo-texto-escuro: rgba(241, 248, 233, 0.8); /* Fundo semi-transparente da cor --cor-fundo-claro para texto em fundos claros */
+    /* ALTERAÇÃO: Fundo semi-transparente MAIS ESCURO (usando cor-fundo-escuro) para texto em fundos escuros */
+    --cor-fundo-texto-claro: rgba(56, 142, 60, 0.7); /* Usando --cor-fundo-escuro com transparência */
+    /* ALTERAÇÃO: Fundo semi-transparente MAIS ESCURO (usando cor-primaria) para texto em fundos claros */
+    --cor-fundo-texto-escuro: rgba(76, 175, 80, 0.7); /* Usando --cor-primaria com transparência */
 
 
     /* Variáveis de acessibilidade */
@@ -50,7 +49,7 @@ section {
 
 /* Header e Navegação */
 header {
-    background-color: var #7CB342;
+    background-color: #7CB342; /* Cor direta para o header */
     padding: 2.5rem 0;
 }
 
@@ -120,8 +119,8 @@ header {
 .esquerda-conteudo p {
     font-size: 1.2rem; /* Aumentado um pouco o tamanho da fonte */
     line-height: 1.7; /* Melhorado espaçamento entre linhas */
-    color: var(--cor-texto-claro);
-    background-color: var(--cor-fundo-texto-claro);
+    color: var(--cor-texto-claro); /* Texto branco, pois o fundo agora é escuro */
+    background-color: var(--cor-fundo-texto-claro); /* Usa o novo fundo mais escuro */
     padding: 15px 25px; /* Aumentado padding */
     border-radius: 12px; /* Mais arredondado */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
@@ -178,10 +177,10 @@ header {
 }
 
 #tropicalia p {
-    color: var(--cor-texto-escuro);
+    color: var(--cor-texto-claro); /* Alterado para texto claro, pois o fundo agora é escuro */
     line-height: 1.8; /* Aumentado espaçamento entre linhas */
     font-size: 1.15rem; /* Aumentado um pouco o tamanho da fonte */
-    background-color: var(--cor-fundo-texto-escuro);
+    background-color: var(--cor-fundo-texto-escuro); /* Usa o novo fundo mais escuro */
     padding: 20px 30px; /* Aumentado padding */
     border-radius: 15px; /* Mais arredondado */
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
@@ -242,10 +241,10 @@ header {
 }
 
 .campo-cidade-item p {
-    color: var(--cor-texto-escuro);
+    color: var(--cor-texto-claro); /* Alterado para texto claro, pois o fundo agora é escuro */
     font-size: 1rem; /* Ajustado tamanho da fonte */
     line-height: 1.6;
-    background-color: var(--cor-fundo-texto-escuro);
+    background-color: var(--cor-fundo-texto-escuro); /* Usa o novo fundo mais escuro */
     padding: 10px 15px; /* Aumentado padding */
     border-radius: 8px; /* Mais arredondado */
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
