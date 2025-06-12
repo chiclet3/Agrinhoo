@@ -50,7 +50,7 @@ section {
 
 /* Header e Navegação */
 header {
-    background-color: var(--cor-fundo-escuro);
+    background-color: var #7CB342;
     padding: 2.5rem 0;
 }
 
