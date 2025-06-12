@@ -40,7 +40,7 @@ a {
 body {
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
-    background: rgb1#8BC34A;
+    background-color: #8BC34A;
     animation: background-pulse 4s infinite alternate;
     color: var(--cor-texto-escuro);
 }
@@ -92,7 +92,7 @@ header {
     min-height: 550px; /* Altura mínima para garantir espaço */
     padding: 40px;
     margin: 0 auto;
-    background-color: rgba(56, 142, 60, 0.8);
+    background-color: rgba(53, 199, 61, 0.8);
     background-blend-mode: multiply;
     animation: fadeInScale 1s ease-out forwards;
     display: flex;
@@ -104,7 +104,7 @@ header {
 
 .inicio-fundo h1 {
     color: var(--cor-texto-claro);
-    text-shadow: -5px 5px var(--cor-sombra);
+    text-shadow: -5px 5px var #689F38;
     margin-bottom: 2rem !important; /* Aumentado espaçamento */
     font-size: 3.5rem; /* Ajustado tamanho da fonte */
 }
@@ -158,7 +158,7 @@ header {
 
 /* Seção "Como fazer essa conexão?" (Tropicalia) */
 #tropicalia {
-    background-color: var(--cor-fundo-claro);
+    background-color: var #8BC34A;
     border-radius: 20px; /* Mais arredondado */
     padding: 3rem; /* Aumentado padding */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Sombra mais forte */
