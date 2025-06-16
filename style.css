@@ -1,308 +1,347 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
 
+/* --- CSS Variables (Custom Properties) --- */
 :root {
-    --cor-primaria: #4CAF50; /* Verde Agrinho */
-    --cor-secundaria: #8BC34A; /* Verde mais claro */
-    --cor-terciaria: #CDDC39; /* Amarelo esverdeado */
-    --cor-fundo-claro: #F1F8E9; /* Fundo muito claro (usado para seções claras) */
-    --cor-fundo-medio: #C5E1A5; /* Fundo médio (usado para formulário, etc.) */
-    --cor-fundo-escuro: #388E3C; /* Fundo escuro para seções */
-    --cor-texto-claro: #FFFFFF; /* Branco: Texto para fundos escuros */
-    --cor-texto-escuro: #424242; /* Preto/Cinza Escuro: Texto para fundos claros */
-    --cor-sombra: #689F38; /* Sombra para títulos */
-    --cor-botao: #7CB342; /* Cor de botão */
-    --cor-link: #33691E; /* Cor de link */
-    --cor-fundo-pagina: #E8F5E9; /* ALTERADO: Cor de fundo para o body (verde claro pastel) */
-    /* ALTERADO: Fundo semi-transparente MAIS ESCURO (usando cor-fundo-escuro) para texto em fundos escuros */
-    --cor-fundo-texto-claro: rgba(56, 142, 60, 0.9); /* Aumentei a opacidade para 90% */
-    /* ALTERADO: Fundo semi-transparente MAIS ESCURO (usando cor-primaria) para texto em fundos claros */
-    --cor-fundo-texto-escuro: rgba(76, 175, 80, 0.9); /* Aumentei a opacidade para 90% */
+    /* Primary Colors */
+    --cor-primaria: #4CAF50; /* A vibrant green, often associated with nature */
+    --cor-secundaria: #8BC34A; /* A lighter, fresh green */
+    --cor-terciaria: #CDDC39; /* A bright, almost lime green for highlights */
+
+    /* Neutral & Background Colors */
+    --cor-fundo-pagina: #E8F5E9; /* Changed: Very light green for entire site background */
+    --cor-fundo-claro: #E8F5E9; /* Slightly darker light green for sections */
+    --cor-fundo-medio: #DCEDC8; /* A medium light green, good for forms */
+    --cor-fundo-escuro: #689F38; /* A darker green, for headers/footers */
+    --cor-fundo-texto-claro: rgba(56, 142, 60, 0.85); /* Changed: Darker green with transparency for text backgrounds on light */
+    --cor-fundo-texto-escuro: rgba(56, 142, 60, 0.85); /* Changed: Darker green with transparency for text backgrounds on light */
 
 
-    /* Variáveis de acessibilidade */
+    /* Text Colors */
+    --cor-texto-claro: #FFFFFF; /* Pure white for text on dark backgrounds */
+    --cor-texto-escuro: #212121; /* Dark grey for text on light backgrounds */
+
+    /* Action & Link Colors */
+    --cor-botao: #388E3C; /* A strong green for buttons */
+    --cor-link: #1B5E20; /* Even darker green for hover states */
+
+    /* Shadow */
+    --cor-sombra: rgba(0, 0, 0, 0.2);
+    --cor-sombra-leve: rgba(0, 0, 0, 0.1);
+
+    /* High Contrast Colors */
     --alto-contraste-fundo: #000000;
-    --alto-contraste-texto: #FFFF00;
-    --alto-contraste-link: #00FFFF;
+    --alto-contraste-texto: #FFFF00; /* Bright yellow for contrast */
+    --alto-contraste-link: #00FFFF; /* Cyan for links */
 }
 
-/* Estilos Globais e Reset Básico */
+/* --- Global Styles and Basic Reset --- */
 * {
     box-sizing: border-box;
-}
-
-a {
-    color: var(--cor-texto-claro) !important;
-    text-decoration: none;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
-    background:var (--cor-fundo-claro) #F1F8E9 ;
-    animation: background-pulse 4s infinite alternate;
+    font-size: 1.1rem; /* Slightly larger base font for better readability */
+    line-height: 1.6;
+    background-color: var(--cor-fundo-pagina); /* Applied new variable */
     color: var(--cor-texto-escuro);
+    animation: background-pulse 4s infinite alternate;
+}
+
+a {
+    color: var(--cor-link) !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--cor-primaria) !important;
+    text-decoration: underline;
 }
 
 section {
-    padding: 5rem 0; /* Unificado padding-top e padding-bottom para todas as seções */
-    margin-bottom: 2rem; /* Espaçamento entre seções */
+    padding: 6rem 0; /* Increased padding for more breathing room */
+    margin-bottom: 3rem; /* Consistent spacing between sections */
 }
 
-/* Header e Navegação */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: var(--cor-texto-escuro);
+}
+
+/* --- Header and Navigation --- */
 header {
-    background-color: #7CB342; /* Cor direta para o cabeçalho */
+    background-color: var(--cor-fundo-escuro);
     padding: 2.5rem 0;
+    box-shadow: 0 4px 8px var(--cor-sombra-leve);
 }
 
 .nav-img {
-    max-height: 80px;
+    max-height: 90px; /* Slightly larger logo */
     width: auto;
+    border-radius: 8px; /* Softly rounded corners for the logo */
 }
 
 .nav-link {
     color: var(--cor-texto-claro) !important;
     font-weight: 600;
-    transition: color 0.3s ease;
     text-transform: uppercase;
-    margin: 0 10px;
+    margin: 0 15px; /* Increased margin for better spacing */
+    position: relative; /* For underline effect */
 }
 
-.nav-link:hover {
-    color: var(--cor-terciaria) !important;
-}
-
-/* Banner Principal */
-.banner {
-    width: 100%;
-    max-height: 300px;
-    object-fit: cover;
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
     display: block;
-    margin-bottom: 20px;
+    margin-top: 5px;
+    right: 0;
+    background: var(--cor-terciaria);
+    transition: width 0.3s ease;
 }
 
-/* Seção Início */
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+    background: var(--cor-terciaria);
+}
+
+/* --- Section: Início (Home) --- */
 .inicio-fundo {
-    background-image: url('https://via.placeholder.com/1500x800/388E3C/FFFFFF?text=Fundo+Rural');
+    background-image: url('https://via.placeholder.com/1800x1000/388E3C/FFFFFF?text=Fundo+Rural+Agrinho'); /* Placeholder - Replace with actual image */
     background-size: cover;
     background-position: center;
     border-radius: 80px;
     width: 100%;
-    min-height: 550px; /* Altura mínima para garantir espaço */
-    padding: 40px;
+    min-height: 600px; /* Increased minimum height */
+    padding: 60px; /* Increased padding */
     margin: 0 auto;
-    background-color: rgba(53, 199, 61, 0.8);
+    background-color: rgba(56, 142, 60, 0.85); /* Darker overlay for better text contrast */
     background-blend-mode: multiply;
-    animation: fadeInScale 1s ease-out forwards;
+    animation: fadeInScale 1.2s ease-out forwards;
     display: flex;
-    flex-direction: column; /* Conteúdo em coluna para melhor organização interna */
-    justify-content: center; /* Centraliza verticalmente o conteúdo */
-    align-items: center; /* Centraliza horizontalmente o conteúdo */
-    text-align: center; /* Centraliza o texto */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 20px var(--cor-sombra);
 }
 
 .inicio-fundo h1 {
     color: var(--cor-texto-claro);
-    text-shadow: -5px 5px var #689F38;
-    margin-bottom: 2rem !important; /* Aumentado espaçamento */
-    font-size: 3.5rem; /* Ajustado tamanho da fonte */
+    text-shadow: 3px 3px var(--cor-link); /* Adjusted shadow for better readability */
+    margin-bottom: 2.5rem !important;
+    font-size: 4rem; /* Larger font size for impact */
+    line-height: 1.2;
 }
 
 .esquerda-conteudo {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza o conteúdo (p, botão) */
-    gap: 1.5rem; /* Aumentado espaçamento entre elementos */
-    max-width: 800px; /* Limita a largura do conteúdo para melhor leitura */
-    margin: 0 auto; /* Centraliza o bloco de conteúdo */
+    align-items: center;
+    gap: 1.8rem; /* Increased spacing */
+    max-width: 900px; /* Wider content area */
+    margin: 0 auto;
 }
 
 .esquerda-conteudo p {
-    font-size: 1.2rem; /* Aumentado um pouco o tamanho da fonte */
-    line-height: 1.7; /* Melhorado espaçamento entre linhas */
-    color: var(--cor-texto-claro); /* Texto branco, pois o fundo agora é escuro */
-    background-color: var(--cor-fundo-texto-claro); /* APLICADO: Novo fundo mais escuro com opacidade */
-    padding: 15px 25px; /* Aumentado padding */
-    border-radius: 12px; /* Mais arredondado */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
-    display: block; /* Ocupa a largura total dentro do seu container */
-    margin-bottom: 15px; /* Espaçamento entre parágrafos */
+    font-size: 1.25rem; /* Larger font size */
+    line-height: 1.8; /* More spacing between lines */
+    color: var(--cor-texto-claro);
+    background-color: var(--cor-fundo-texto-escuro); /* Changed: Darker green with transparency for text background */
+    padding: 20px 30px; /* More padding */
+    border-radius: 15px; /* More rounded */
+    box-shadow: 0 6px 12px var(--cor-sombra); /* Stronger shadow */
+    display: block;
+    margin-bottom: 20px;
+    text-align: justify;
 }
 
 .img-inicio {
-    max-height: 400px;
-    object-fit: contain;
+    max-height: 450px; /* Slightly taller image */
+    object-fit: cover; /* Ensure image covers the area, cropping if necessary */
     width: 100%;
-    margin-top: 3rem; /* Espaçamento da imagem em relação ao texto */
+    margin-top: 3.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px var(--cor-sombra);
 }
 
 .botao-inicio {
     background-color: var(--cor-botao);
-    border-radius: 30px;
+    border-radius: 35px; /* More rounded pill shape */
     border: none;
-    width: 16em; /* Ligeiramente maior */
-    height: 3.5em; /* Ligeiramente maior */
+    width: 18em; /* Wider button */
+    height: 4em; /* Taller button */
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--cor-texto-claro);
-    transition: background-color 0.3s ease;
-    font-weight: 700; /* Mais negrito */
-    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 700;
+    font-size: 1.2rem; /* Larger text */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .botao-inicio:hover {
     background-color: var(--cor-link);
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 15px var(--cor-sombra);
 }
 
-/* Seção "Como fazer essa conexão?" (Tropicalia) */
-#tropicalia {
-    background-color: var(--cor-secundaria); /* ALTERADO: Para um verde claro */
-    border-radius: 20px; /* Mais arredondado */
-    padding: 3rem; /* Aumentado padding */
-    box-shadow: 0 6px 12px var(--cor-sombra); /* Sombra mais forte */
-    animation: slideInUp 1s ease-out forwards;
-    margin: 4rem auto; /* Centraliza e adiciona margem superior/inferior */
-    max-width: 900px; /* Limita a largura para melhor leitura */
+/* --- Section: Conexão (Formerly Tropicalia) --- */
+#conexao {
+    background-color: var(--cor-secundaria);
+    border-radius: 25px; /* More rounded */
+    padding: 4rem; /* More padding */
+    box-shadow: 0 8px 16px var(--cor-sombra);
+    animation: slideInUp 1.2s ease-out forwards;
+    margin: 5rem auto; /* More margin */
+    max-width: 950px; /* Wider section */
 }
 
-#tropicalia h2 {
+#conexao h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3em; /* Ajustado tamanho da fonte */
+    font-size: 3.5em; /* Larger font size */
     font-style: italic;
     font-weight: bold;
     color: var(--cor-texto-escuro);
-    text-shadow: -4px 4px var(--cor-sombra); /* Sombra mais pronunciada */
+    text-shadow: 2px 2px var(--cor-sombra-leve);
     text-align: center;
-    margin-bottom: 2.5rem; /* Aumentado espaçamento */
+    margin-bottom: 3rem; /* More spacing */
 }
 
-#tropicalia p {
-    color: var(--cor-texto-claro); /* Alterado para texto claro, pois o fundo agora é escuro */
-    line-height: 1.8; /* Aumentado espaçamento entre linhas */
-    font-size: 1.15rem; /* Aumentado um pouco o tamanho da fonte */
-    background-color: var(--cor-fundo-texto-escuro); /* APLICADO: Novo fundo mais escuro com opacidade */
-    padding: 20px 30px; /* Aumentado padding */
-    border-radius: 15px; /* Mais arredondado */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
-    display: block; /* Garante que ocupe a largura do container */
-    text-align: justify; /* Justifica o texto para uma aparência mais limpa */
+#conexao p {
+    color: var(--cor-texto-escuro); /* Text color changed to dark as background is light */
+    line-height: 1.9; /* Increased line height */
+    font-size: 1.15rem;
+    background-color: var(--cor-fundo-texto-claro); /* Changed: Darker green with transparency for text background */
+    padding: 25px 35px; /* More padding */
+    border-radius: 18px; /* More rounded */
+    box-shadow: 0 5px 10px var(--cor-sombra-leve);
+    display: block;
+    text-align: justify;
 }
 
-/* Nova Seção Campo e Cidade */
-#campo-cidade {
-    background-color: var(--cor-fundo-claro);
-    padding: 5rem 0; /* Mantido padding padrão */
-    animation: fadeIn 1.5s ease-out forwards;
-}
-
-#campo-cidade h2 {
+/* --- Campo e Cidade Title (Repositioned) --- */
+#campo-cidade-titulo h2 {
     color: var(--cor-texto-escuro);
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 4rem; /* Aumentado espaçamento */
-    text-shadow: -3px 3px var(--cor-sombra);
-    font-size: 3em;
+    margin-bottom: 3rem; /* Spacing below the title */
+    margin-top: 0; /* No extra top margin */
+    text-shadow: 2px 2px var(--cor-sombra-leve);
+    font-size: 3.5em;
+    padding-top: 1rem; /* Adjust padding to separate from header */
+}
+
+/* --- Section: Campo e Cidade --- */
+#campo-cidade-section { /* Changed ID to avoid conflict with title ID */
+    background-color: var(--cor-fundo-pagina); /* Using the overall page background */
+    padding: 6rem 0;
+    animation: fadeIn 1.5s ease-out forwards;
+    margin-top: 0; /* Remove top margin as title is now separate */
 }
 
 .campo-cidade-item {
     text-align: center;
-    margin-bottom: 2.5rem; /* Espaçamento entre os cards */
-    padding: 2rem; /* Aumentado padding */
-    background-color: #FFFFFF;
-    border-radius: 20px; /* Mais arredondado */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra mais forte */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Adicionado transição para sombra */
+    margin-bottom: 3rem; /* Increased spacing between cards */
+    padding: 2.5rem; /* More padding */
+    background-color: var(--cor-texto-claro); /* White background for items */
+    border-radius: 25px; /* More rounded */
+    box-shadow: 0 10px 20px var(--cor-sombra-leve); /* Stronger shadow */
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 1px solid var(--cor-fundo-claro); /* Subtle border */
 }
 
 .campo-cidade-item:hover {
-    transform: translateY(-15px); /* Efeito de levitar mais pronunciado */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
-}
-
-.campo-cidade-item img {
-    max-width: 100%;
-    height: 220px; /* Ligeiramente mais alto */
-    object-fit: cover;
-    border-radius: 15px; /* Mais arredondado */
-    margin-bottom: 1.5rem; /* Aumentado espaçamento */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-18px); /* More pronounced lift effect */
+    box-shadow: 0 15px 30px var(--cor-sombra); /* Even stronger shadow on hover */
 }
 
 .campo-cidade-item h3 {
     color: var(--cor-primaria);
     font-weight: bold;
-    margin-bottom: 0.8rem; /* Aumentado espaçamento */
-    font-size: 1.7rem; /* Ligeiramente maior */
+    margin-bottom: 1rem; /* More spacing */
+    font-size: 1.9rem; /* Larger font size */
 }
 
 .campo-cidade-item p {
-    color: var(--cor-texto-claro); /* Alterado para texto claro, pois o fundo agora é escuro */
-    font-size: 1rem; /* Ajustado tamanho da fonte */
-    line-height: 1.6;
-    background-color: var(--cor-fundo-texto-escuro); /* APLICADO: Novo fundo mais escuro com opacidade */
-    padding: 10px 15px; /* Aumentado padding */
-    border-radius: 8px; /* Mais arredondado */
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-    display: block; /* Garante que ocupe a largura do card */
-    text-align: justify; /* Justifica o texto */
+    color: var(--cor-texto-escuro); /* Dark text on white background */
+    font-size: 1.1rem;
+    line-height: 1.7;
+    background-color: var(--cor-fundo-texto-escuro); /* Changed: Darker green with transparency for text background */
+    padding: 15px 20px; /* Added padding for text background */
+    border-radius: 10px; /* Rounded corners for text background */
+    box-shadow: 0 2px 5px var(--cor-sombra-leve); /* Subtle shadow for text background */
+    display: block;
+    text-align: justify;
 }
 
 /* Seção Galeria */
 #galeria {
-    border-radius: 20px; /* Mais arredondado */
+    border-radius: 25px; /* More rounded */
     background-color: var(--cor-fundo-escuro);
-    padding: 4rem; /* Aumentado padding */
+    padding: 5rem; /* More padding */
     animation: fadeIn 1.5s ease-out forwards;
-    margin-top: 4rem; /* Espaçamento da seção anterior */
+    margin-top: 5rem; /* More spacing */
+    box-shadow: 0 10px 20px var(--cor-sombra);
 }
 
 #galeria h2 {
     color: var(--cor-texto-claro);
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    margin-bottom: 3rem; /* Aumentado espaçamento */
-    font-size: 3em;
-    text-shadow: -3px 3px var(--cor-sombra); /* Mantido a sombra para realce */
-}
-
-.fundo-galeria {
-    background: none; /* Mantido sem fundo para que as imagens se destaquem no fundo da seção */
+    margin-bottom: 3.5rem; /* More spacing */
+    font-size: 3.5em;
+    text-shadow: 2px 2px var(--cor-link);
 }
 
 /* Ajustes nas imagens da galeria */
 #galeria .img-fluid {
-    border-radius: 15px !important; /* Mais arredondado */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra para destacar as imagens */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 20px !important; /* More rounded */
+    box-shadow: 0 10px 20px var(--cor-sombra); /* Stronger shadow for images */
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    width: 100%; /* Ensure images fill their column */
+    height: 250px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover the area, cropping if needed */
 }
 
 #galeria .img-fluid:hover {
-    transform: scale(1.05); /* Leve zoom no hover */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    transform: scale(1.07); /* More pronounced zoom */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* Seção Contato */
 #contato {
-    background-image: url('https://via.placeholder.com/1500x800/388E3C/FFFFFF?text=Fundo+Contato');
+    background-image: url('https://via.placeholder.com/1800x1000/689F38/FFFFFF?text=Fundo+Contato+Agrinho'); /* Placeholder - Replace with actual image */
     background-size: cover;
     background-position: center;
-    padding: 5rem 0; /* Aumentado padding */
-    border-radius: 20px; /* Mais arredondado */
+    padding: 6rem 0; /* More padding */
+    border-radius: 25px; /* More rounded */
     animation: fadeIn 1.5s ease-out forwards;
-    margin-top: 4rem; /* Espaçamento da seção anterior */
+    margin-top: 5rem;
+    box-shadow: 0 10px 20px var(--cor-sombra);
+    background-color: rgba(104, 159, 56, 0.8); /* Overlay for readability */
+    background-blend-mode: multiply;
 }
 
 .formulario {
     background-color: var(--cor-fundo-medio);
-    padding: 3rem; /* Aumentado padding */
-    border-radius: 15px; /* Mais arredondado */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Sombra mais forte */
+    padding: 4rem; /* More padding */
+    border-radius: 20px; /* More rounded */
+    box-shadow: 0 0 20px var(--cor-sombra); /* Stronger shadow */
     font-weight: bold;
     color: var(--cor-texto-escuro);
 }
@@ -311,15 +350,16 @@ header {
     color: var(--cor-texto-escuro);
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    margin-bottom: 2rem;
-    font-size: 2.5em;
-    text-shadow: -2px 2px var(--cor-sombra);
+    margin-bottom: 2.5rem; /* More spacing */
+    font-size: 3em; /* Larger font size */
+    text-shadow: 1px 1px var(--cor-sombra-leve);
 }
 
 .formulario label {
     color: var(--cor-texto-escuro);
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.15rem; /* Slightly larger label font */
+    margin-bottom: 0.8rem;
+    display: block; /* Ensure labels are block elements for proper spacing */
 }
 
 .formulario button {
@@ -327,32 +367,37 @@ header {
     border: none;
     font-weight: bold;
     color: var(--cor-texto-claro);
-    transition: background-color 0.3s ease;
-    padding: 0.8rem 1.5rem; /* Ajuste no padding do botão */
-    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 1rem 2rem; /* More padding for button */
+    font-size: 1.2rem; /* Larger font size */
+    border-radius: 30px; /* Rounded pill shape */
+    text-transform: uppercase;
 }
 
 .formulario button:hover {
     background-color: var(--cor-link);
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 5px 10px var(--cor-sombra-leve);
 }
 
 .form-control {
     background-color: var(--cor-fundo-claro);
     border: 1px solid var(--cor-secundaria);
     color: var(--cor-texto-escuro);
-    padding: 0.75rem 1rem; /* Aumentado padding */
-    border-radius: 8px; /* Mais arredondado */
+    padding: 0.9rem 1.2rem; /* More padding */
+    border-radius: 10px; /* More rounded */
+    font-size: 1rem;
 }
 
 .form-control::placeholder {
-    color: rgba(66, 66, 66, 0.7);
+    color: rgba(66, 66, 66, 0.6); /* Slightly lighter placeholder text */
 }
 
-/* Acessibilidade */
+/* --- Accessibility --- */
 .menu-acessibilidade {
     position: fixed;
     top: 2rem;
-    right: 20px;
+    right: 25px; /* Slightly more to the right */
     z-index: 1000;
 }
 
@@ -362,34 +407,40 @@ header {
     background-color: var(--cor-botao) !important;
     border: none;
     color: var(--cor-texto-claro);
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 0.8rem 1.2rem; /* Consistent padding */
+    border-radius: 8px; /* Slightly rounded */
 }
 .rotacao-botao:hover {
     background-color: var(--cor-link) !important;
+    transform: rotate(-90deg) translateY(-3px); /* Combined transform */
 }
 
 .opcoes-acessibilidade {
-    margin-top: 10px;
+    margin-top: 15px; /* More space below the main button */
     display: flex;
     flex-direction: column;
+    gap: 8px; /* Space between buttons */
 }
 
 .opcoes-acessibilidade button {
-    margin-bottom: 5px;
     background-color: var(--cor-botao) !important;
     border: none;
     color: var(--cor-texto-claro);
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 0.6rem 1rem; /* Consistent padding */
+    border-radius: 8px; /* Slightly rounded */
 }
 .opcoes-acessibilidade button:hover {
     background-color: var(--cor-link) !important;
+    transform: translateY(-2px); /* Slight lift */
 }
 
 .apresenta-lista {
     display: none;
 }
 
-/* Estilos de Alto Contraste */
+/* --- High Contrast Styles --- */
 .alto-contraste {
     background-color: var(--alto-contraste-fundo) !important;
     color: var(--alto-contraste-texto) !important;
@@ -401,8 +452,9 @@ header {
 .alto-contraste .inicio-fundo,
 .alto-contraste #galeria,
 .alto-contraste #contato {
-    background-color: #689F38 !important;
+    background-color: #333333 !important; /* Darker background for contrast */
     color: var(--alto-contraste-texto) !important;
+    border-color: var(--alto-contraste-link) !important; /* Border for clarity */
 }
 
 .alto-contraste .nav-link {
@@ -416,17 +468,36 @@ header {
 .alto-contraste .opcoes-acessibilidade button {
     background-color: var(--alto-contraste-link) !important;
     color: var(--alto-contraste-fundo) !important;
+    border: 2px solid var(--alto-contraste-texto) !important; /* Stronger border */
 }
 
-.alto-contraste #tropicalia {
-    background: var(--alto-contraste-fundo) !important;
+.alto-contraste #conexao { /* Changed from #tropicalia to #conexao */
+    background-color: #555555 !important; /* Medium dark for contrast */
+    color: var(--alto-contraste-texto) !important;
+    border-color: var(--alto-contraste-link) !important;
 }
 
-.alto-contraste .fundo-galeria {
-    background: none !important;
+.alto-contraste .campo-cidade-item {
+    background-color: #444444 !important;
+    color: var(--alto-contraste-texto) !important;
+    border-color: var(--alto-contraste-link) !important;
 }
 
-/* Animações CSS */
+.alto-contraste .campo-cidade-item h3 {
+    color: var(--alto-contraste-link) !important;
+}
+
+.alto-contraste .form-control {
+    background-color: #222222 !important;
+    border-color: var(--alto-contraste-link) !important;
+    color: var(--alto-contraste-texto) !important;
+}
+
+.alto-contraste .form-control::placeholder {
+    color: rgba(255, 255, 0, 0.7) !important; /* Yellow placeholder */
+}
+
+/* --- CSS Animations --- */
 @keyframes background-pulse {
     0% {
         background-color: var(--cor-fundo-pagina);
@@ -450,7 +521,7 @@ header {
 
 @keyframes slideInUp {
     from {
-        transform: translateY(50px);
+        transform: translateY(80px); /* More pronounced slide */
         opacity: 0;
     }
     to {
@@ -462,7 +533,7 @@ header {
 @keyframes fadeInScale {
     from {
         opacity: 0;
-        transform: scale(0.95);
+        transform: scale(0.9); /* Slightly smaller start scale */
     }
     to {
         opacity: 1;
@@ -470,11 +541,11 @@ header {
     }
 }
 
-/* ScrollReveal.js Classes */
+/* --- ScrollReveal.js Classes (no changes needed for these from CSS perspective) --- */
 .animated-element {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(30px); /* More displacement for animation */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Slower, smoother transition */
 }
 
 .animated-element.sr-active {
@@ -482,24 +553,250 @@ header {
     transform: translateY(0);
 }
 
-.main-banner {
-    display: none;
-}
-
-/* Estilos de Rodapé */
+/* --- Footer Styles --- */
 footer {
     text-align: center;
-    padding: 3rem;
+    padding: 3.5rem; /* More padding */
     font-style: italic;
     background-color: var(--cor-fundo-escuro);
+    box-shadow: 0 -4px 8px var(--cor-sombra-leve);
 }
 
 footer p {
     color: var(--cor-texto-claro);
+    font-size: 1rem; /* Consistent font size */
+    margin: 0;
 }
 
 footer i {
     color: var(--cor-texto-claro);
-    margin: 0 0.5rem;
-    font-size: 1.5rem;
+    margin: 0 0.8rem; /* More space for icons if added */
+    font-size: 1.8rem; /* Larger icons */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .nav-link {
+        margin: 0 8px;
+        font-size: 0.95rem;
+    }
+
+    .inicio-fundo {
+        min-height: 500px;
+        padding: 30px;
+    }
+
+    .inicio-fundo h1 {
+        font-size: 3rem;
+    }
+
+    .esquerda-conteudo p {
+        font-size: 1.1rem;
+        padding: 15px 20px;
+    }
+
+    .img-inicio {
+        margin-top: 2rem;
+    }
+
+    #conexao {
+        padding: 3rem;
+        margin: 3rem auto;
+    }
+
+    #conexao h2 {
+        font-size: 2.8em;
+    }
+
+    #conexao p {
+        font-size: 1.05rem;
+        padding: 20px 25px;
+    }
+
+    #campo-cidade-titulo h2 { /* Responsive font size for the new title */
+        font-size: 2.8em;
+        margin-bottom: 2rem;
+    }
+
+    #campo-cidade-section h2 { /* Removed this as title is now separate */
+        display: none;
+    }
+
+    .campo-cidade-item {
+        margin-bottom: 2rem;
+        padding: 2rem;
+    }
+
+    #galeria {
+        padding: 3rem;
+        margin-top: 3rem;
+    }
+
+    #galeria h2 {
+        font-size: 2.8em;
+        margin-bottom: 2.5rem;
+    }
+
+    #galeria .img-fluid {
+        height: 200px; /* Slightly smaller on tablets */
+    }
+
+    #contato {
+        padding: 4rem 0;
+        margin-top: 3rem;
+    }
+
+    .formulario {
+        padding: 3rem;
+    }
+
+    .formulario h2 {
+        font-size: 2.2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem !important;
+    }
+
+    .nav-item {
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-img {
+        max-height: 70px;
+        margin-bottom: 1rem;
+    }
+
+    .menu-acessibilidade {
+        position: static; /* Stack accessibility buttons on smaller screens */
+        margin-top: 1rem;
+        text-align: center;
+        transform: rotate(0deg) !important; /* Reset rotation */
+    }
+
+    .rotacao-botao {
+        transform: rotate(0deg) !important; /* Reset rotation */
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .opcoes-acessibilidade {
+        flex-direction: row; /* Display accessibility options in a row */
+        justify-content: center;
+        flex-wrap: wrap; /* Allow wrapping */
+    }
+
+    .opcoes-acessibilidade button {
+        flex: 1 1 auto; /* Distribute space */
+        margin: 5px; /* Space between buttons */
+    }
+
+    .inicio-fundo {
+        min-height: auto; /* Auto height on small screens */
+        padding: 20px;
+        border-radius: 40px; /* Less rounded */
+    }
+
+    .inicio-fundo h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .esquerda-conteudo {
+        gap: 1rem;
+    }
+
+    .esquerda-conteudo p {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+
+    .img-inicio {
+        max-height: 300px;
+        margin-top: 1.5rem;
+    }
+
+    .botao-inicio {
+        width: 100%; /* Full width button */
+        font-size: 1rem;
+        height: 3.2em;
+    }
+
+    #conexao {
+        padding: 2rem;
+        margin: 2rem auto;
+        border-radius: 15px;
+    }
+
+    #conexao h2 {
+        font-size: 2em;
+        margin-bottom: 1.5rem;
+    }
+
+    #conexao p {
+        font-size: 0.95rem;
+        padding: 15px 20px;
+    }
+
+    #campo-cidade-titulo h2 { /* Responsive font size for the new title */
+        font-size: 2.2em;
+        margin-bottom: 1.5rem;
+    }
+
+    .campo-cidade-item {
+        padding: 1.5rem;
+        border-radius: 15px;
+    }
+
+    .campo-cidade-item h3 {
+        font-size: 1.5rem;
+    }
+
+    .campo-cidade-item p {
+        font-size: 0.9rem;
+    }
+
+    #galeria {
+        padding: 2.5rem;
+        margin-top: 2.5rem;
+        border-radius: 15px;
+    }
+
+    #galeria h2 {
+        font-size: 2.2em;
+        margin-bottom: 2rem;
+    }
+
+    #galeria .img-fluid {
+        height: 180px; /* Smaller on phones */
+        margin-bottom: 1rem; /* Space between images in column */
+    }
+
+    #contato {
+        padding: 3rem 0;
+        margin-top: 2.5rem;
+        border-radius: 15px;
+    }
+
+    .formulario {
+        padding: 2.5rem;
+        border-radius: 15px;
+    }
+
+    .formulario h2 {
+        font-size: 1.8em;
+    }
+
+    .formulario label {
+        font-size: 1rem;
+    }
+
+    .formulario button {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+    }
 }
