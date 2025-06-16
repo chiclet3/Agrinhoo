@@ -10,11 +10,11 @@
 
     /* Neutral & Background Colors */
     --cor-fundo-pagina: #E8F5E9; /* Changed: Very light green for entire site background */
-    --cor-fundo-claro: #E8F5E9; /* Slightly darker light green for sections */
+    --cor-fundo-claro: #E8F5E9; /* Used for sections that need a light background, matches page background */
     --cor-fundo-medio: #DCEDC8; /* A medium light green, good for forms */
     --cor-fundo-escuro: #689F38; /* A darker green, for headers/footers */
-    --cor-fundo-texto-claro: rgba(56, 142, 60, 0.85); /* Changed: Darker green with transparency for text backgrounds on light */
-    --cor-fundo-texto-escuro: rgba(56, 142, 60, 0.85); /* Changed: Darker green with transparency for text backgrounds on light */
+    --cor-fundo-texto-claro: rgba(56, 142, 60, 0.85); /* Changed: Darker green with transparency for text backgrounds */
+    --cor-fundo-texto-escuro: rgba(56, 142, 60, 0.85); /* Changed: Darker green with transparency for text backgrounds */
 
 
     /* Text Colors */
@@ -229,25 +229,21 @@ header {
     text-align: justify;
 }
 
-/* --- Campo e Cidade Title (Repositioned) --- */
-#campo-cidade-titulo h2 {
+/* --- Section: Campo e Cidade --- */
+#campo-cidade {
+    background-color: var(--cor-fundo-pagina); /* Using the overall page background */
+    padding: 6rem 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+#campo-cidade h2 {
     color: var(--cor-texto-escuro);
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 3rem; /* Spacing below the title */
-    margin-top: 0; /* No extra top margin */
+    margin-bottom: 5rem; /* More spacing */
     text-shadow: 2px 2px var(--cor-sombra-leve);
     font-size: 3.5em;
-    padding-top: 1rem; /* Adjust padding to separate from header */
-}
-
-/* --- Section: Campo e Cidade --- */
-#campo-cidade-section { /* Changed ID to avoid conflict with title ID */
-    background-color: var(--cor-fundo-pagina); /* Using the overall page background */
-    padding: 6rem 0;
-    animation: fadeIn 1.5s ease-out forwards;
-    margin-top: 0; /* Remove top margin as title is now separate */
 }
 
 .campo-cidade-item {
@@ -613,13 +609,9 @@ footer i {
         padding: 20px 25px;
     }
 
-    #campo-cidade-titulo h2 { /* Responsive font size for the new title */
+    #campo-cidade h2 {
         font-size: 2.8em;
-        margin-bottom: 2rem;
-    }
-
-    #campo-cidade-section h2 { /* Removed this as title is now separate */
-        display: none;
+        margin-bottom: 3rem;
     }
 
     .campo-cidade-item {
@@ -742,9 +734,9 @@ footer i {
         padding: 15px 20px;
     }
 
-    #campo-cidade-titulo h2 { /* Responsive font size for the new title */
+    #campo-cidade h2 {
         font-size: 2.2em;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     .campo-cidade-item {
