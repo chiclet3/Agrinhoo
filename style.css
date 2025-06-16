@@ -161,7 +161,7 @@ header {
     background-color: var #8BC34A;
     border-radius: 20px; /* Mais arredondado */
     padding: 3rem; /* Aumentado padding */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Sombra mais forte */
+    box-shadow: 0 6px 12px rgb(24, 163, 66); /* Sombra mais forte */
     animation: slideInUp 1s ease-out forwards;
     margin: 4rem auto; /* Centraliza e adiciona margem superior/inferior */
     max-width: 900px; /* Limita a largura para melhor leitura */
@@ -185,7 +185,7 @@ header {
     background-color: var(--cor-fundo-texto-escuro); /* Usa o novo fundo mais escuro */
     padding: 20px 30px; /* Aumentado padding */
     border-radius: 15px; /* Mais arredondado */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
+    box-shadow: 0 3px 8px rgb(24, 163, 66); /* Sombra mais pronunciada */
     display: block; /* Garante que ocupe a largura do container */
     text-align: justify; /* Justifica o texto para uma aparência mais limpa */
 }
