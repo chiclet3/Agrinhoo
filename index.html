@@ -1,951 +1,330 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 
+
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho: Campo & Cidade Conectados</title>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <style>
-        :root {
-            --cor-fundo-pagina: #E8F5E9; /* Verde claro para o fundo da página */
-            --cor-fundo-texto-claro: rgba(56, 142, 60, 0.85); /* Verde mais escuro com transparência */
-            --cor-fundo-texto-escuro: rgba(56, 142, 60, 0.85); /* Verde mais escuro com transparência */
-            
-            /* Outras variáveis de cor mantidas como estavam para consistência */
-            --cor-primaria: #4CAF50;
-            --cor-secundaria: #8BC34A;
-            --cor-terciaria: #CDDC39;
-            --cor-fundo-claro: #E8F5E9; 
-            --cor-fundo-medio: #DCEDC8;
-            --cor-fundo-escuro: #689F38;
-            --cor-texto-claro: #FFFFFF;
-            --cor-texto-escuro: #212121;
-            --cor-botao: #388E3C;
-            --cor-link: #1B5E20;
-            --cor-sombra: rgba(0, 0, 0, 0.2);
-            --cor-sombra-leve: rgba(0, 0, 0, 0.1);
-            --alto-contraste-fundo: #000000;
-            --alto-contraste-texto: #FFFF00;
-            --alto-contraste-link: #00FFFF;
-        }
+<meta charset="UTF-8">
 
-        body {
-            background-color: var(--cor-fundo-pagina); /* Aplica o verde claro ao fundo do body */
-        }
-        /* Ajustes para aplicar as cores de texto nos elementos relevantes */
-        .esquerda-conteudo p,
-        #conexao p,
-        .campo-cidade-item p {
-            background-color: var(--cor-fundo-texto-claro);
-            color: var(--cor-texto-claro); /* Para garantir que o texto fique legível sobre o fundo escuro transparente */
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* O restante do seu CSS original */
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+<title>Agrinho</title>
 
-        /* --- Global Styles and Basic Reset --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
 
-        /* Removido background-color do body aqui pois já está no topo */
-        /* body {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: var(--cor-texto-escuro);
-            animation: background-pulse 4s infinite alternate;
-        } */
 
-        a {
-            color: var(--cor-link) !important;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
 
-        a:hover {
-            color: var(--cor-primaria) !important;
-            text-decoration: underline;
-        }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
 
-        section {
-            padding: 6rem 0;
-            margin-bottom: 3rem;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            color: var(--cor-texto-escuro);
-        }
+<link rel="stylesheet" href="styles.css">
 
-        /* --- Header and Navigation --- */
-        header {
-            background-color: var(--cor-fundo-escuro);
-            padding: 2.5rem 0;
-            box-shadow: 0 4px 8px var(--cor-sombra-leve);
-        }
-
-        .nav-img {
-            max-height: 90px;
-            width: auto;
-            border-radius: 8px;
-        }
-
-        .nav-link {
-            color: var(--cor-texto-claro) !important;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin: 0 15px;
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            display: block;
-            margin-top: 5px;
-            right: 0;
-            background: var(--cor-terciaria);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-            left: 0;
-            background: var(--cor-terciaria);
-        }
-
-        /* --- Section: Início (Home) --- */
-        .inicio-fundo {
-            background-image: url('https://via.placeholder.com/1800x1000/388E3C/FFFFFF?text=Fundo+Rural+Agrinho');
-            background-size: cover;
-            background-position: center;
-            border-radius: 80px;
-            width: 100%;
-            min-height: 600px;
-            padding: 60px;
-            margin: 0 auto;
-            background-color: rgba(0, 0, 0, 0.6);
-            background-blend-mode: multiply;
-            animation: fadeInScale 1.2s ease-out forwards;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 10px 20px var(--cor-sombra);
-        }
-
-        .inicio-fundo h1 {
-            color: var(--cor-texto-claro);
-            text-shadow: 3px 3px var(--cor-link);
-            margin-bottom: 2.5rem !important;
-            font-size: 4rem;
-            line-height: 1.2;
-        }
-
-        .esquerda-conteudo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.8rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* .esquerda-conteudo p {
-            font-size: 1.25rem;
-            line-height: 1.8;
-            color: var(--cor-texto-claro);
-            background-color: var(--cor-fundo-texto-escuro);
-            padding: 20px 30px;
-            border-radius: 15px;
-            box-shadow: 0 6px 12px var(--cor-sombra);
-            display: block;
-            margin-bottom: 20px;
-            text-align: justify;
-        } */
-
-        .img-inicio {
-            max-height: 450px;
-            object-fit: cover;
-            width: 100%;
-            margin-top: 3.5rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px var(--cor-sombra);
-        }
-
-        .botao-inicio {
-            background-color: var(--cor-botao);
-            border-radius: 35px;
-            border: none;
-            width: 18em;
-            height: 4em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--cor-texto-claro);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            font-weight: 700;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .botao-inicio:hover {
-            background-color: var(--cor-link);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px var(--cor-sombra);
-        }
-
-        /* --- Section: Conexão (Formerly Tropicalia) --- */
-        .secao-tropicalia {
-            background-color: var(--cor-secundaria);
-            border-radius: 25px;
-            padding: 4rem;
-            box-shadow: 0 8px 16px var(--cor-sombra);
-            animation: slideInUp 1.2s ease-out forwards;
-            margin: 5rem auto;
-            max-width: 950px;
-        }
-
-        .secao-tropicalia h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5em;
-            font-style: italic;
-            font-weight: bold;
-            color: var(--cor-texto-escuro);
-            text-shadow: 2px 2px var(--cor-sombra-leve);
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        /* .secao-tropicalia p {
-            color: var(--cor-texto-escuro);
-            line-height: 1.9;
-            font-size: 1.15rem;
-            background-color: var(--cor-fundo-texto-claro);
-            padding: 25px 35px;
-            border-radius: 18px;
-            box-shadow: 0 5px 10px var(--cor-sombra-leve);
-            display: block;
-            text-align: justify;
-        } */
-
-        /* --- Section: Campo e Cidade --- */
-        #campo-cidade {
-            background-color: var(--cor-fundo-pagina);
-            padding: 6rem 0;
-            animation: fadeIn 1.5s ease-out forwards;
-        }
-
-        #campo-cidade h2 {
-            color: var(--cor-texto-escuro);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 5rem;
-            text-shadow: 2px 2px var(--cor-sombra-leve);
-            font-size: 3.5em;
-        }
-
-        .campo-cidade-item {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2.5rem;
-            background-color: var(--cor-fundo-claro);
-            border-radius: 25px;
-            box-shadow: 0 10px 20px var(--cor-sombra-leve);
-            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border: 1px solid var(--cor-fundo-medio);
-        }
-
-        .campo-cidade-item:hover {
-            transform: translateY(-18px);
-            box-shadow: 0 15px 30px var(--cor-sombra);
-        }
-
-        .campo-cidade-item h3 {
-            color: var(--cor-primaria);
-            font-weight: bold;
-            margin-bottom: 1rem;
-            font-size: 1.9rem;
-        }
-
-        /* .campo-cidade-item p {
-            color: var(--cor-texto-escuro);
-            font-size: 1.1rem;
-            line-height: 1.7;
-            background-color: var(--cor-fundo-texto-escuro);
-            padding: 15px 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px var(--cor-sombra-leve);
-            display: block;
-            text-align: justify;
-        } */
-
-        /* Seção Galeria */
-        #galeria {
-            border-radius: 25px;
-            background-color: var(--cor-fundo-escuro);
-            padding: 5rem;
-            animation: fadeIn 1.5s ease-out forwards;
-            margin-top: 5rem;
-            box-shadow: 0 10px 20px var(--cor-sombra);
-        }
-
-        #galeria h2 {
-            color: var(--cor-texto-claro);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            margin-bottom: 3.5rem;
-            font-size: 3.5em;
-            text-shadow: 2px 2px var(--cor-link);
-        }
-
-        /* Ajustes nas imagens da galeria */
-        #galeria .img-fluid {
-            border-radius: 20px !important;
-            box-shadow: 0 10px 20px var(--cor-sombra);
-            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        #galeria .img-fluid:hover {
-            transform: scale(1.07);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Seção Contato */
-        #contato {
-            background-image: url('https://via.placeholder.com/1800x1000/689F38/FFFFFF?text=Fundo+Contato+Agrinho');
-            background-size: cover;
-            background-position: center;
-            padding: 6rem 0;
-            border-radius: 25px;
-            animation: fadeIn 1.5s ease-out forwards;
-            margin-top: 5rem;
-            box-shadow: 0 10px 20px var(--cor-sombra);
-            background-color: rgba(0, 0, 0, 0.7);
-            background-blend-mode: multiply;
-        }
-
-        .formulario {
-            background-color: var(--cor-fundo-medio);
-            padding: 4rem;
-            border-radius: 20px;
-            box-shadow: 0 0 20px var(--cor-sombra);
-            font-weight: bold;
-            color: var(--cor-texto-escuro);
-        }
-
-        .formulario h2 {
-            color: var(--cor-texto-escuro);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            margin-bottom: 2.5rem;
-            font-size: 3em;
-            text-shadow: 1px 1px var(--cor-sombra-leve);
-        }
-
-        .formulario label {
-            color: var(--cor-texto-escuro);
-            font-size: 1.15rem;
-            margin-bottom: 0.8rem;
-            display: block;
-        }
-
-        .formulario button {
-            background-color: var(--cor-botao);
-            border: none;
-            font-weight: bold;
-            color: var(--cor-texto-claro);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            border-radius: 30px;
-            text-transform: uppercase;
-        }
-
-        .formulario button:hover {
-            background-color: var(--cor-link);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 10px var(--cor-sombra-leve);
-        }
-
-        .form-control {
-            background-color: var(--cor-fundo-claro);
-            border: 1px solid var(--cor-secundaria);
-            color: var(--cor-texto-escuro);
-            padding: 0.9rem 1.2rem;
-            border-radius: 10px;
-            font-size: 1rem;
-        }
-
-        .form-control::placeholder {
-            color: rgba(66, 66, 66, 0.6);
-        }
-
-        /* --- Accessibility --- */
-        .menu-acessibilidade {
-            position: fixed;
-            top: 2rem;
-            right: 25px;
-            z-index: 1000;
-        }
-
-        .rotacao-botao {
-            transform: rotate(-90deg);
-            transform-origin: right center;
-            background-color: var(--cor-botao) !important;
-            border: none;
-            color: var(--cor-texto-claro);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            padding: 0.8rem 1.2rem;
-            border-radius: 8px;
-        }
-        .rotacao-botao:hover {
-            background-color: var(--cor-link) !important;
-            transform: rotate(-90deg) translateY(-3px);
-        }
-
-        .opcoes-acessibilidade {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .opcoes-acessibilidade button {
-            background-color: var(--cor-botao) !important;
-            border: none;
-            color: var(--cor-texto-claro);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            padding: 0.6rem 1rem;
-            border-radius: 8px;
-        }
-        .opcoes-acessibilidade button:hover {
-            background-color: var(--cor-link) !important;
-            transform: translateY(-2px);
-        }
-
-        .apresenta-lista {
-            display: none;
-        }
-
-        /* --- High Contrast Styles --- */
-        .alto-contraste {
-            background-color: var(--alto-contraste-fundo) !important;
-            color: var(--alto-contraste-texto) !important;
-        }
-
-        .alto-contraste header,
-        .alto-contraste footer,
-        .alto-contraste .formulario,
-        .alto-contraste .inicio-fundo,
-        .alto-contraste #galeria,
-        .alto-contraste #contato {
-            background-color: #333333 !important;
-            color: var(--alto-contraste-texto) !important;
-            border-color: var(--alto-contraste-link) !important;
-        }
-
-        .alto-contraste .nav-link {
-            color: var(--alto-contraste-link) !important;
-        }
-
-        .alto-contraste .botao-inicio,
-        .alto-contraste .formulario button,
-        .alto-contraste .btn-primary,
-        .alto-contraste .rotacao-botao,
-        .alto-contraste .opcoes-acessibilidade button {
-            background-color: var(--alto-contraste-link) !important;
-            color: var(--alto-contraste-fundo) !important;
-            border: 2px solid var(--alto-contraste-texto) !important;
-        }
-
-        .alto-contraste .secao-tropicalia {
-            background-color: #555555 !important;
-            color: var(--alto-contraste-texto) !important;
-            border-color: var(--alto-contraste-link) !important;
-        }
-
-        .alto-contraste .campo-cidade-item {
-            background-color: #444444 !important;
-            color: var(--alto-contraste-texto) !important;
-            border-color: var(--alto-contraste-link) !important;
-        }
-
-        .alto-contraste .campo-cidade-item h3 {
-            color: var(--alto-contraste-link) !important;
-        }
-
-        .alto-contraste .form-control {
-            background-color: #222222 !important;
-            border-color: var(--alto-contraste-link) !important;
-            color: var(--alto-contraste-texto) !important;
-        }
-
-        .alto-contraste .form-control::placeholder {
-            color: rgba(255, 255, 0, 0.7) !important;
-        }
-
-        /* --- CSS Animations --- */
-        @keyframes background-pulse {
-            0% {
-                background-color: var(--cor-fundo-pagina);
-            }
-            50% {
-                background-color: var(--cor-fundo-claro);
-            }
-            100% {
-                background-color: var(--cor-fundo-pagina);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                transform: translateY(80px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        /* --- ScrollReveal.js Classes (no changes needed for these from CSS perspective) --- */
-        .animated-element {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .animated-element.sr-active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- Footer Styles --- */
-        footer {
-            text-align: center;
-            padding: 3.5rem;
-            font-style: italic;
-            background-color: var(--cor-fundo-escuro);
-            box-shadow: 0 -4px 8px var(--cor-sombra-leve);
-        }
-
-        footer p {
-            color: var(--cor-texto-claro);
-            font-size: 1rem;
-            margin: 0;
-        }
-
-        footer i {
-            color: var(--cor-texto-claro);
-            margin: 0 0.8rem;
-            font-size: 1.8rem;
-        }
-
-        /* --- Responsive Adjustments --- */
-        @media (max-width: 992px) {
-            .nav-link {
-                margin: 0 8px;
-                font-size: 0.95rem;
-            }
-
-            .inicio-fundo {
-                min-height: 500px;
-                padding: 30px;
-            }
-
-            .inicio-fundo h1 {
-                font-size: 3rem;
-            }
-
-            .esquerda-conteudo p {
-                font-size: 1.1rem;
-                padding: 15px 20px;
-            }
-
-            .img-inicio {
-                margin-top: 2rem;
-            }
-
-            .secao-tropicalia {
-                padding: 3rem;
-                margin: 3rem auto;
-            }
-
-            .secao-tropicalia h2 {
-                font-size: 2.8em;
-            }
-
-            .secao-tropicalia p {
-                font-size: 1.05rem;
-                padding: 20px 25px;
-            }
-
-            #campo-cidade h2 {
-                font-size: 2.8em;
-                margin-bottom: 3rem;
-            }
-
-            .campo-cidade-item {
-                margin-bottom: 2rem;
-                padding: 2rem;
-            }
-
-            #galeria {
-                padding: 3rem;
-                margin-top: 3rem;
-            }
-
-            #galeria h2 {
-                font-size: 2.8em;
-                margin-bottom: 2.5rem;
-            }
-
-            #galeria .img-fluid {
-                height: 200px;
-            }
-
-            #contato {
-                padding: 4rem 0;
-                margin-top: 3rem;
-            }
-
-            .formulario {
-                padding: 3rem;
-            }
-
-            .formulario h2 {
-                font-size: 2.2em;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav {
-                flex-direction: column;
-                align-items: center;
-                margin-top: 1rem !important;
-            }
-
-            .nav-item {
-                margin-bottom: 0.5rem;
-            }
-
-            .nav-img {
-                max-height: 70px;
-                margin-bottom: 1rem;
-            }
-
-            .menu-acessibilidade {
-                position: static;
-                margin-top: 1rem;
-                text-align: center;
-                transform: rotate(0deg) !important;
-            }
-
-            .rotacao-botao {
-                transform: rotate(0deg) !important;
-                width: 100%;
-                margin-bottom: 10px;
-            }
-
-            .opcoes-acessibilidade {
-                flex-direction: row;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .opcoes-acessibilidade button {
-                flex: 1 1 auto;
-                margin: 5px;
-            }
-
-            .inicio-fundo {
-                min-height: auto;
-                padding: 20px;
-                border-radius: 40px;
-            }
-
-            .inicio-fundo h1 {
-                font-size: 2.5rem;
-                margin-bottom: 1.5rem !important;
-            }
-
-            .esquerda-conteudo {
-                gap: 1rem;
-            }
-
-            .esquerda-conteudo p {
-                font-size: 1rem;
-                padding: 10px 15px;
-            }
-
-            .img-inicio {
-                max-height: 300px;
-                margin-top: 1.5rem;
-            }
-
-            .botao-inicio {
-                width: 100%;
-                font-size: 1rem;
-                height: 3.2em;
-            }
-
-            .secao-tropicalia {
-                padding: 2rem;
-                margin: 2rem auto;
-                border-radius: 15px;
-            }
-
-            .secao-tropicalia h2 {
-                font-size: 2em;
-                margin-bottom: 1.5rem;
-            }
-
-            .secao-tropicalia p {
-                font-size: 0.95rem;
-                padding: 15px 20px;
-            }
-
-            #campo-cidade h2 {
-                font-size: 2.2em;
-                margin-bottom: 2rem;
-            }
-
-            .campo-cidade-item {
-                padding: 1.5rem;
-                border-radius: 15px;
-            }
-
-            .campo-cidade-item h3 {
-                font-size: 1.5rem;
-            }
-
-            .campo-cidade-item p {
-                font-size: 0.9rem;
-            }
-
-            #galeria {
-                padding: 2.5rem;
-                margin-top: 2.5rem;
-                border-radius: 15px;
-            }
-
-            #galeria h2 {
-                font-size: 2.2em;
-                margin-bottom: 2rem;
-            }
-
-            #galeria .img-fluid {
-                height: 180px;
-                margin-bottom: 1rem;
-            }
-
-            #contato {
-                padding: 3rem 0;
-                margin-top: 2.5rem;
-                border-radius: 15px;
-            }
-
-            .formulario {
-                padding: 2.5rem;
-                border-radius: 15px;
-            }
-
-            .formulario h2 {
-                font-size: 1.8em;
-            }
-
-            .formulario label {
-                font-size: 1rem;
-            }
-
-            .formulario button {
-                padding: 0.8rem 1rem;
-                font-size: 1rem;
-            }
-        }
-    </style>
-    <link rel="stylesheet" href="styles.css">
 </head>
 
+
+
 <body>
-    <header class="p-5">
-        <nav class="container d-flex justify-content-between align-items-center">
-            <img src="https://raw.githubusercontent.com/chiclet3/Agrinhoo/refs/heads/main/encantador-celeiro-vermelho-em-um-cenario-pastoral_1308-165962.avif"
-                class="nav-img" loading="lazy" alt="Logo Agrinho: um celeiro vermelho encantador em cenário pastoral">
-            <ul class="nav mt-5">
-                <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
-                <li class="nav-item"><a class="nav-link" href="#conexao">Conexão</a></li>
-                <li class="nav-item"><a class="nav-link" href="#campo-cidade">Campo & Cidade</a></li>
-                <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-            </ul>
-            <div id="acessibilidade" class="menu-acessibilidade">
-                <button id="botao-acessibilidade" class="btn btn-success fw-bold rotacao-botao" aria-expanded="false" aria-controls="opcoes-acessibilidade">Acessibilidade</button>
-                <div id="opcoes-acessibilidade" class="opcoes-acessibilidade apresenta-lista">
-                    <button id="aumentar-fonte" class="btn btn-success fw-bold" aria-label="Aumentar o tamanho da fonte">A+</button>
-                    <button id="diminuir-fonte" class="btn btn-success fw-bold" aria-label="Diminuir o tamanho da fonte">A-</button>
-                    <button id="alterna-contraste" class="btn btn-success fw-bold" aria-label="Alternar o contraste de cores"> <i class="bi bi-shadows"></i></button>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <main class="container my-5">
-        <section id="inicio" class="my-5 animated-element">
-            <div class="inicio-fundo">
-                <h1 class="display-4 fst-italic fw-bold text-center mb-4">Descubra o Universo Agrinho: Conectando Campo e Cidade!</h1>
-                <div class="d-flex flex-column-reverse flex-md-row justify-content-between align-items-center">
-                    <div class="col-md-6 esquerda-conteudo mt-4 mt-md-0">
-                        <p>Explore a fascinante **conexão entre o campo e a cidade**, dois mundos que, embora distintos, são intrinsecamente ligados. Longe de serem meros opostos, esses ambientes pulsam com vida, cada um com suas próprias histórias, desafios e oportunidades.</p>
-                        <p>Navegue conosco para entender as nuances da vida rural e urbana. Descubra como a tranquilidade do campo, com sua natureza exuberante e produção de alimentos, se entrelaça com a efervescência da cidade, um centro de inovação, cultura e progresso. Ambos os cenários moldam nossas vidas de maneiras únicas.</p>
-                        <a href="#conexao" class="btn btn-success btn-lg botao-inicio fw-semibold mt-3">Quero Desvendar Essa Conexão!</a>
-                    </div>
-                    <div class="col-md-5 text-center">
-                        <img src="https://raw.githubusercontent.com/chiclet3/Agrinhoo/refs/heads/main/the-landscape-in-the-flat-4514628_1280.webp"
-                            alt="Paisagem rural com campos e árvores ao pôr do sol"
-                            title="Paisagem rural - CC0 Domínio Público / Acervo Arquivo Nacional" class="img-fluid img-inicio">
-                    </div>
-                </div>
-            </div>
-        </section>
+<header class="p-5">
 
-        <section id="conexao" class="my-5 secao-tropicalia animated-element" tabindex="0"
-            aria-label="Seção explicativa sobre a conexão campo-cidade">
-            <div class="container d-flex align-items-center justify-content-center">
-                <div class="col-9">
-                    <h2 class="display-4 fst-italic fw-bold text-center mb-4">Fortalecendo Laços: Como Conectar Campo e Cidade?</h2>
-                    <p class="p-2">A ponte entre o campo e a cidade é construída através de **políticas públicas inteligentes e investimentos estratégicos**. Ao valorizar o potencial produtivo rural e a capacidade de inovação dos centros urbanos, criamos uma sinergia poderosa. Investir em infraestrutura de transporte, tecnologia da informação e educação é crucial para aproximar essas realidades.</p>
-                    <p class="p-2">Imagine o fortalecimento da **agricultura familiar**, com o apoio logístico e tecnológico vindo das cidades. Isso gera benefícios para todos: produtos frescos e de qualidade para os consumidores urbanos, e um mercado garantido para os produtores rurais. Além disso, o **intercâmbio cultural** é vital. Iniciativas como o turismo rural, feiras de produtores locais e projetos de educação ambiental nas cidades ajudam a estreitar laços e promover uma compreensão mútua. O campo ensina sobre sustentabilidade e a importância da terra, enquanto a cidade oferece acesso à tecnologia, informação e serviços especializados, impulsionando um desenvolvimento mais equilibrado e consciente.</p>
-                </div>
-            </div>
-        </section>
+<nav class="container d-flex justify-content-between align-items-center">
 
-        <section id="campo-cidade" class="my-5 animated-element">
-            <div class="container">
-                <h2 class="display-4 fst-italic fw-bold text-center mb-4">Campo e Cidade: Dois Mundos, Uma Conexão</h2>
-                <div class="row">
-                    <div class="col-md-6 col-lg-4 d-flex">
-                        <div class="campo-cidade-item">
-                            <h3>A Serenidade do Campo</h3>
-                            <p>A vida no campo segue o ritmo da natureza, com a **produção de alimentos frescos** e uma conexão profunda com a terra. É um refúgio de tranquilidade e trabalho dedicado, fundamental para nossa existência e bem-estar.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 d-flex">
-                        <div class="campo-cidade-item">
-                            <h3>A Vibração da Cidade</h3>
-                            <p>A cidade, por sua vez, é um polo de **inovação, cultura e diversidade**. Oferece um leque vasto de oportunidades, serviços e uma vida social efervescente, impulsionando o desenvolvimento econômico e tecnológico do país.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 d-flex">
-                        <div class="campo-cidade-item">
-                            <h3>Unindo Forças e Construindo o Futuro</h3>
-                            <p>Mais do que opostos, campo e cidade são **parceiros essenciais**. A conexão entre eles se fortalece com a troca de conhecimentos, tecnologias e recursos, promovendo um desenvolvimento mais **equilibrado e próspero** para todos.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<img src="https://raw.githubusercontent.com/chiclet3/Agrinhoo/refs/heads/main/encantador-celeiro-vermelho-em-um-cenario-pastoral_1308-165962.avif"
 
-        <section id="galeria" tabindex="0" aria-label="Seção de galeria de imagens inspiradoras" class="animated-element">
-            <h2 class="text-center pt-5">Nossa Galeria: Um Olhar Sobre o Campo e a Cidade</h2>
-            <div class="container p-3 mt-3 fundo-galeria ">
-                <div class="row justify-content-md-center">
-                    <div class="col-md-4">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXF_UW4MAa465HFAH7KP67ReqtMU39OzqcdVkuZH2e1djQ_KU1KEUhN7IiuKcDcL2OuypFkuCc9Yi7PplfwC7fKjZjtzRwYpHmsGtXI_KveEo89SNEVBuzlj2kZGkXQd_KLVpg5MTMnM0//"
-                            class="img-fluid rounded-5" loading="lazy" alt="Criança aprendendo sobre a natureza no campo">
-                    </div>
-                    <div class="col-md-4">
-                        <img src="https://github.com/chiclet3/Agrinhoo/blob/main/beneficios-de-viver-no-campo-1024x671.jpg?raw=true"
-                            class="img-fluid rounded-5" loading="lazy" alt="Família desfrutando da vida no campo">
-                    </div>
-                    <div class="col-md-4">
-                        <img src="https://raw.githubusercontent.com/chiclet3/Agrinhoo/refs/heads/main/_image.webp"
-                            class="img-fluid rounded-5" loading="lazy" alt="Vista aérea de uma cidade moderna com áreas verdes">
-                    </div>
-                </div>
-            </div>
-        </section>
+class="nav-img" loading="lazy" alt="Logo Agrinho: um celeiro vermelho encantador em cenário pastoral">
 
-        <section id="contato" class="animated-element">
-            <div class="container p-5 d-flex justify-content-center">
-                <div class="col-md-8 col-lg-10 rounded-5 formulario">
-                    <h2 class="mb-3">Fale Conosco: Conecte-se com o Agrinho!</h2>
-                    <form>
-                        <div class="form-group mb-3">
-                            <label for="nome" class="form-label">Nome Completo</label>
-                            <input type="text" id="nome" name="nome" class="form-control rounded-3 mt-1"
-                                placeholder="Digite seu nome completo" aria-required="true">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="email" class="form-label">Seu Melhor Email</label>
-                            <input type="email" id="email" name="email" class="form-control rounded-3 mt-1"
-                                placeholder="Digite seu email" aria-required="true">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="mensagem" class="form-label">Sua Mensagem</label>
-                            <textarea id="mensagem" name="mensagem" class="form-control rounded-4 mt-2" rows="4"
-                                placeholder="Escreva sua mensagem aqui. Adoraríamos ouvir você!" aria-required="true"></textarea>
-                        </div>
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-success btn-lg rounded-pill">Enviar Mensagem</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
+<ul class="nav mt-5">
 
-    </main>
+<li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
 
-    <footer class="text-center p-3 fst-italic">
-        <p class="mt-3">Desenvolvido por Wagner Mateus da Cruz Moreira. 2025</p>
-    </footer>
+<li class="nav-item"><a class="nav-link" href="#tropicalia">Conexão</a></li>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.js"></script>
-    <script src="script.js"></script>
+<li class="nav-item"><a class="nav-link" href="#campo-cidade">Campo & Cidade</a></li>
+
+<li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
+
+<li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+
+</ul>
+
+<div id="acessibilidade" class="menu-acessibilidade">
+
+<button id="botao-acessibilidade" class="btn btn-success fw-bold rotacao-botao" aria-expanded="false">Acessibilidade</button>
+
+<div id="opcoes-acessibilidade" class="opcoes-acessibilidade apresenta-lista">
+
+<button id="aumentar-fonte" class="btn btn-success fw-bold" aria-label="Aumentar o tamanho da fonte">A+</button>
+
+<button id="diminuir-fonte" class="btn btn-success fw-bold" aria-label="Diminuir o tamanho da fonte">A-</button>
+
+<button id="alterna-contraste" class="btn btn-success fw-bold" aria-label="Alterna o contraste de cores"> <i class="bi bi-shadows"></i></button
+
+</div>
+
+</div>
+
+</nav>
+
+</header>
+
+
+
+<main class="container my-5">
+
+<section id="inicio" class="my-5 animated-element">
+
+<div class="inicio-fundo">
+
+<h1 class="display-4 fst-italic fw-bold text-center mb-4">Boas-vindas ao Agrinho</h1>
+
+<div class="d-flex flex-column-reverse flex-md-row justify-content-between align-items-center">
+
+<div class="col-md-6 esquerda-conteudo mt-4 mt-md-0">
+
+<p> A dicotomia entre campo e cidade é um dos temas mais perenes quando se discute estilos de vida, desenvolvimento social e econômico.
+
+Longe de serem meros opostos geográficos, esses dois ambientes representam complexas teias de relações humanas,
+
+infraestruturas e valores, cada um com suas singularidades e desafios.</p>
+
+<p>Explorar as nuances de ambos os mundos nos permite compreender melhor as escolhas, os desafios e as oportunidades que cada um oferece.
+
+A vida no campo, com seu ritmo mais calmo e contato direto com a natureza, contrasta com a efervescência e a diversidade da vida urbana.</p>
+
+<a href="#" class="btn btn-success btn-lg botao-inicio fw-semibold mt-3">Quero conhecer!</a>
+
+</div>
+
+<div class="col-md-5 text-center">
+
+<img src="https://raw.githubusercontent.com/chiclet3/Agrinhoo/refs/heads/main/the-landscape-in-the-flat-4514628_1280.webp"
+
+alt="Paisagem rural com campos e árvores ao pôr do sol"
+
+title="Paisagem rural - CC0 Domínio Público / Acervo Arquivo Nacional" class="img-fluid img-inicio">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="tropicalia" class="my-5 secao-tropicalia animated-element" tabindex="0"
+
+aria-label="Seção explicativa sobre a conexão campo-cidade">
+
+<div class="container d-flex align-items-center justify-content-center">
+
+<div class="col-9">
+
+<h2 class="display-4 fst-italic fw-bold text-center mb-4">Como fazer essa conexão?</h2>
+
+<p class="p-2">A conexão entre campo e cidade pode ser feita por meio de políticas públicas integradas,
+
+que valorizem tanto o potencial produtivo das áreas rurais quanto a capacidade de escoamento inovação e consumo dos centros urbanos.
+
+Investimentos em infraestrutura de transporte, tecnologia da informação e educação são caminhos eficazes para aproximar essas realidades.
+
+Por exemplo, o fortalecimento da agricultura familiar com apoio logístico e tecnológico das cidades pode gerar benefícios mútuos —
+
+produtos de qualidade para os consumidores urbanos e mercado garantido para os produtores rurais.
+
+Além disso, o intercâmbio cultural entre os dois espaços enriquece ambos os estilos de vida. Iniciativas como o turismo rural,
+
+feiras de produtores e projetos de educação ambiental nas cidades ajudam a estreitar laços e promover uma compreensão mais profunda das interdependências.
+
+A cidade pode aprender com o campo sobre sustentabilidade, tempo e cuidado com a terra, enquanto o campo pode se beneficiar do acesso à tecnologia, à informação e a serviços especializa</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="campo-cidade" class="my-5 animated-element">
+
+<h2 class="display-4 fst-italic fw-bold text-center mb-4">Campo e Cidade: Dois Mundos, Uma Conexão</h2>
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-6 col-lg-4 d-flex">
+
+<div class="campo-cidade-item">
+
+
+<h3>A Calma do Campo</h3>
+
+<p>A vida no campo é marcada pelo ritmo da natureza, pela produção de alimentos frescos e pela conexão direta com a terra. É um ambiente de tranquilidade e trabalho árduo, essencial para a nossa subsistência.</p>
+
+</div>
+
+</div>
+
+<div class="col-md-6 col-lg-4 d-flex">
+
+<div class="campo-cidade-item">
+
+
+<h3>A Efervescência da Cidade</h3>
+
+<p>A cidade, por sua vez, é um centro de inovação, cultura e diversidade. Oferece oportunidades, serviços e uma vida social agitada, sendo o polo para o desenvolvimento econômico e tecnológico.</p>
+
+</div>
+
+</div>
+
+<div class="col-md-6 col-lg-4 d-flex">
+
+<div class="campo-cidade-item">
+
+
+<h3>Construindo Pontes</h3>
+
+<p>Mais do que opostos, campo e cidade são complementares. A conexão entre eles se fortalece com o intercâmbio de conhecimentos, tecnologias e recursos, promovendo um desenvolvimento mais equilibrado para todos.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="galeria" tabindex="0" aria-label="Seção de galeria de imagens" class="animated-element">
+
+<h2 class="text-center pt-5">Galeria</h2>
+
+<div class="container p-3 mt-3 fundo-galeria ">
+
+<div class="row justify-content-md-center">
+
+<div class="col-md-4">
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXF_UW4MAa465HFAH7KP67ReqtMU39OzqcdVkuZH2e1djQ_KU1KEUhN7IiuKcDcL2OuypFkuCc9Yi7PplfwC7fKjZjtzRwYpHmsGtXI_KveEo89SNEVBuzlj2kZGkXQd_KLVpg5MTMnM0//"
+
+class="img-fluid rounded-5" loading="lazy" alt="Imagem da Galeria 1">
+
+</div>
+
+<div class="col-md-4">
+
+<img src="https://github.com/chiclet3/Agrinhoo/blob/main/beneficios-de-viver-no-campo-1024x671.jpg?raw=true"
+
+class="img-fluid rounded-5" loading="lazy" alt="Imagem da Galeria 2">
+
+</div>
+
+<div class="col-md-4">
+
+<img src="https://raw.githubusercontent.com/chiclet3/Agrinhoo/refs/heads/main/_image.webp"
+
+class="img-fluid rounded-5" loading="lazy" alt="Imagem da Galeria 3">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="contato" class="animated-element">
+
+<div class="container p-5 d-flex justify-content-center">
+
+<div class="col-md-8 col-lg-10 rounded-5 formulario">
+
+<h2 class="mb-3">Entre em contato</h2>
+
+<form>
+
+<div class="form-group mb-3">
+
+<label for="nome">Nome</label>
+
+<input type="text" id="nome" name="nome" class="form-control rounded-3 mt-1"
+
+placeholder="Digite seu nome completo">
+
+</div>
+
+<div class="form-group mb-3">
+
+<label for="email">Email</label>
+
+<input type="email" id="email" name="email" class="form-control rounded-3 mt-1"
+
+placeholder="Digite seu email">
+
+</div>
+
+<div class="form-group mb-3">
+
+<label for="mensagem">Mensagem</label>
+
+<textarea id="mensagem" name="mensagem" class="form-control rounded-4 mt-2" rows="4"
+
+placeholder="Escreva sua mensagem"></textarea>
+
+</div>
+
+<div class="d-grid gap-2">
+
+<button type="submit" class="btn btn-success btn-lg rounded-pill">Enviar mensagem</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+</main>
+
+
+
+<footer class="text-center p-3 fst-italic">
+
+<p class="mt-3">Desenvolvido por Wagner Mateus da Cruz Moreira.
+
+2025</p>
+
+</footer>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.js"></script>
+
+<script src="script.js"></script>
+
+
 
 </body>
+
+
 
 </html>
