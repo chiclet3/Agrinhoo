@@ -13,7 +13,7 @@ a {
 body {
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
-    background: var(#dcf1de); /* APLICADO: A nova variável de fundo claro */
+    background: var(#ccfad1); /* APLICADO: A nova variável de fundo claro */
     animation: background-pulse 4s infinite alternate;
     color: var(--cor-texto-escuro);
 }
