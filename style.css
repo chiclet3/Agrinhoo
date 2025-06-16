@@ -40,7 +40,7 @@ a {
 body {
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
-    background: var(--cor-fundo-pagina); /* APLICADO: A nova variável de fundo claro */
+    background: var(--cor-fundo-pagina #F1F8E9); /* APLICADO: A nova variável de fundo claro */
     animation: background-pulse 4s infinite alternate;
     color: var(--cor-texto-escuro);
 }
