@@ -39,7 +39,7 @@ a {
 body {
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
-    background:var(--cor-fundo-claro) #F1F8E9: ;
+    background:var (--cor-fundo-claro) #F1F8E9 ;
     animation: background-pulse 4s infinite alternate;
     color: var(--cor-texto-escuro);
 }
