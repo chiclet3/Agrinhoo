@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
 
-/* Variáveis de cores */
 :root {
     --cor-primaria: #4CAF50; /* Verde Agrinho */
     --cor-secundaria: #8BC34A; /* Verde mais claro */
@@ -40,7 +39,7 @@ a {
 body {
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
-    background: var(--cor-fundo-pagina #F1F8E9); /* APLICADO: A nova variável de fundo claro */
+    background:var(--cor-fundo-claro) #F1F8E9: ;
     animation: background-pulse 4s infinite alternate;
     color: var(--cor-texto-escuro);
 }
