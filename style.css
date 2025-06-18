@@ -10,7 +10,7 @@
 
     /* Neutral & Background Colors */
     --cor-fundo-pagina: #E8F5E9; /* Changed: Very light green for entire site background */
-    --cor-fundo-claro: #E8F5E9; /* Used for sections that need a light background, matches page background */
+    --cor-fundo-claro: #9E8F5E; /* Used for sections that need a light background, matches page background */
     --cor-fundo-medio: #DCEDC8; /* A medium light green, good for forms */
     --cor-fundo-escuro: #689F38; /* A darker green, for headers/footers */
     --cor-fundo-texto-claro: rgba(56, 142, 60, 0.85); /* Changed: Darker green with transparency for text backgrounds */
