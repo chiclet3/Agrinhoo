@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const opcoesAcessibilidade = document.getElementById('opcoes-acessibilidade');
     const aumentarFonteBtn = document.getElementById('aumentar-fonte');
     const diminuirFonteBtn = document.getElementById('diminuir-fonte');
+    const lerVozAltaBtn = document.getElementById('ler-voz-alta'); // NOVO: Botão de leitura em voz alta
     const body = document.body;
 
     let fontSize = 1.1; // Tamanho de fonte base em 'rem'
@@ -83,4 +84,81 @@ document.addEventListener('DOMContentLoaded', function () {
         body.style.fontSize = fontSize + 'rem';
     });
 
+    // --- Funcionalidade de Leitura em Voz Alta (NOVO CÓDIGO) ---
+    if ('speechSynthesis' in window) { // Verifica se a API está disponível no navegador
+        const synth = window.speechSynthesis;
+        let utterance = new SpeechSynthesisUtterance();
+
+        // Configurações iniciais do Utterance
+        utterance.lang = 'pt-BR'; // Define o idioma para Português (Brasil)
+
+        // Função para obter todo o texto visível da página
+        function getPageText() {
+            // Seleciona os elementos principais de conteúdo.
+            // Você pode ajustar esses seletores para incluir ou excluir áreas específicas.
+            const contentElements = document.querySelectorAll('h1, h2, h3, p, li, figcaption, a.nav-link, footer p');
+            let fullText = '';
+            contentElements.forEach(element => {
+                // Adiciona o texto do elemento, tratando tags para melhor leitura
+                let text = element.innerText || element.textContent; // Prefer innerText para conteúdo visível
+
+                // Limita a quantidade de texto para cada elemento, evitando sobrecarga
+                if (text.length > 500) {
+                    text = text.substring(0, 500) + '...'; // Trunca textos muito longos
+                }
+
+                // Adiciona uma pequena pausa entre blocos de texto
+                fullText += text.trim() + '. ';
+            });
+            // Remove múltiplos espaços e novas linhas
+            return fullText.replace(/\s+/g, ' ').trim();
+        }
+
+        let isSpeaking = false; // Estado para controlar se está falando ou não
+
+        lerVozAltaBtn.addEventListener('click', function () {
+            if (isSpeaking) {
+                // Se já estiver falando, para a fala
+                synth.cancel();
+                isSpeaking = false;
+                lerVozAltaBtn.textContent = 'Ler em voz alta';
+                lerVozAltaBtn.setAttribute('aria-label', 'Ativar leitura em voz alta do conteúdo');
+            } else {
+                // Se não estiver falando, inicia a fala
+                const textToSpeak = getPageText(); // Obtém o texto do conteúdo principal da página
+
+                if (textToSpeak) {
+                    utterance.text = textToSpeak;
+                    synth.speak(utterance);
+                    isSpeaking = true;
+                    lerVozAltaBtn.textContent = 'Parar leitura';
+                    lerVozAltaBtn.setAttribute('aria-label', 'Parar leitura em voz alta');
+                } else {
+                    console.warn("Nenhum texto encontrado para leitura.");
+                    // Opcional: Avisar o usuário que não há texto para ler.
+                }
+            }
+        });
+
+        // Evento para atualizar o estado do botão quando a fala termina (ou é cancelada)
+        utterance.onend = function() {
+            isSpeaking = false;
+            lerVozAltaBtn.textContent = 'Ler em voz alta';
+            lerVozAltaBtn.setAttribute('aria-label', 'Ativar leitura em voz alta do conteúdo');
+        };
+
+        utterance.onboundary = function(event) {
+            // Opcional: Realçar o texto que está sendo lido.
+            // Isso requer uma implementação mais complexa de DOM traversal.
+            // Por enquanto, vamos manter simples.
+        };
+
+    } else {
+        // Se a API não for suportada, desabilita ou oculta o botão
+        lerVozAltaBtn.disabled = true;
+        lerVozAltaBtn.textContent = 'Leitura não suportada';
+        lerVozAltaBtn.setAttribute('title', 'Seu navegador não suporta leitura de voz alta.');
+        console.warn('Web Speech API não é suportada neste navegador.');
+    }
 });
+        
