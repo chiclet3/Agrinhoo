@@ -1,125 +1,86 @@
-document.addEventListener('DOMContentLoaded', function(){
-    const botaoDeAcessibilidade = document.getElementById('botao-acessibilidade')
-    const opcoesDeAcessibilidade = document.getElementById('opcoes-acessibilidade')
- 
-    botaoDeAcessibilidade.addEventListener('click', function (){
-     botaoDeAcessibilidade.classList.toggle('rotacao-botao');
-     opcoesDeAcessibilidade.classList.toggle('apresenta-lista')
- 
-     const botaoSelecionado = botaoDeAcessibilidade.getAttribute('aria-expanded') === 'true';
-     botaoDeAcessibilidade.setAttribute('aria-expanded', !botaoSelecionado)
-   
-    })
- 
-     const aumentaFonteBotao = document.getElementById('aumentar-fonte');
-     const diminuiFonteBotao = document.getElementById('diminuir-fonte');
-     
-     const alternaContraste = document.getElementById('alterna-contraste')
- 
-     let tamanhoAtualFonte = 1;
- 
-     aumentaFonteBotao.addEventListener('click', function(){
-         tamanhoAtualFonte += 0.1;
-         document.body.style.fontSize = `${tamanhoAtualFonte}rem`
- 
-     })
- 
-     diminuiFonteBotao.addEventListener('click', function(){
-         tamanhoAtualFonte -= 0.1;
-         document.body.style.fontSize = `${tamanhoAtualFonte}rem`
- 
-     })
- 
-     alternaContraste.addEventListener('click', function(){
-         document.body.classList.toggle('alto-contraste')
-     })
- 
- 
- })
- 
- ScrollReveal().reveal('#inicio', { delay: 500 });
- ScrollReveal().reveal('#tropicalia', { delay: 500 });
- ScrollReveal().reveal('#galeria', { delay: 500 });
- ScrollReveal().reveal('#contato', { delay: 500 });
+document.addEventListener('DOMContentLoaded', function () {
+    // Configuração do ScrollReveal
+    // Mais informações em: https://scrollrevealjs.org/
+    ScrollReveal({
+        reset: false, // Define se a animação deve ser redefinida ao rolar de volta para cima
+        distance: '60px', // Distância que o elemento irá "viajar"
+        duration: 1500, // Duração da animação em milissegundos
+        easing: 'cubic-bezier(.694,0,.335,1)', // Curva de aceleração da animação
+        interval: 100 // Intervalo entre animações de múltiplos elementos com a mesma classe
+    });
 
- // script.js
+    // Aplica animação a elementos com a classe .animated-element
+    // Estas são as seções principais que aparecerão ao rolar
+    ScrollReveal().reveal('.animated-element', {
+        origin: 'bottom', // A animação vem de baixo
+        opacity: 0, // Começa invisível
+        scale: 0.9 // Começa ligeiramente menor
+    });
 
-// Configuração do ScrollReveal.js
-ScrollReveal().reveal('.animated-element', {
-    delay: 200,      // Atraso antes da animação começar (em ms)
-    distance: '50px', // Distância que o elemento percorre
-    origin: 'bottom', // De onde a animação vem (pode ser 'top', 'left', 'right', 'bottom')
-    duration: 1000,   // Duração da animação (em ms)
-    easing: 'ease-out', // Tipo de transição (ex: 'ease-in', 'ease-out', 'ease-in-out')
-    interval: 0,      // Intervalo entre a animação de múltiplos elementos com a mesma classe (em ms)
-    reset: false      // Se a animação deve resetar ao rolar para fora da tela (true/false)
-});
+    // Aplica animação a elementos com a classe .animated-item
+    // Usado para itens dentro das seções, como os cards e as imagens da galeria
+    ScrollReveal().reveal('.animated-item', {
+        origin: 'bottom', // A animação vem de baixo
+        opacity: 0, // Começa invisível
+        scale: 0.9, // Começa ligeiramente menor
+        interval: 200 // Pequeno atraso entre cada item para um efeito em cascata
+    });
 
-// Animação específica para o banner (opcional, se quiser uma diferente)
-ScrollReveal().reveal('.banner', {
-    delay: 100,
-    duration: 1200,
-    origin: 'top',
-    distance: '30px',
-    easing: 'ease-in-out',
-    opacity: 0
-});
+    // Animação específica para o título principal no topo da página
+    ScrollReveal().reveal('.inicio-fundo h1', {
+        origin: 'top', // O título vem de cima
+        distance: '40px',
+        duration: 1800,
+        delay: 500, // Um pequeno atraso para aparecer depois que a página carrega
+        easing: 'ease-out',
+        scale: 1
+    });
 
-// Você pode adicionar mais configurações específicas para outras seções se quiser:
-// ScrollReveal().reveal('#inicio .inicio-fundo', {
-//     delay: 300,
-//     duration: 1200,
-//     scale: 0.9, // Exemplo: começar menor e escalar
-//     opacity: 0
-// });
+    // Animação para os parágrafos dentro da seção de início
+    ScrollReveal().reveal('.esquerda-conteudo p', {
+        origin: 'left', // Parágrafos vêm da esquerda
+        distance: '50px',
+        duration: 1600,
+        delay: 700, // Atraso após o título
+        interval: 300 // Atraso entre cada parágrafo
+    });
 
-// ScrollReveal().reveal('#campo-cidade .campo-cidade-item', {
-//     delay: 200,
-//     duration: 800,
-//     interval: 150, // Anima cada item da seção um após o outro
-//     origin: 'left',
-//     distance: '30px'
-// });
+    // Animação para a imagem na seção de início
+    ScrollReveal().reveal('.img-inicio', {
+        origin: 'right', // Imagem vem da direita
+        distance: '50px',
+        duration: 1600,
+        delay: 800
+    });
 
 
-// Script de acessibilidade (se você já tiver um)
-document.addEventListener('DOMContentLoaded', function() {
+    // --- Funcionalidades de Acessibilidade ---
     const botaoAcessibilidade = document.getElementById('botao-acessibilidade');
     const opcoesAcessibilidade = document.getElementById('opcoes-acessibilidade');
-    const aumentarFonte = document.getElementById('aumentar-fonte');
-    const diminuirFonte = document.getElementById('diminuir-fonte');
-    const alternaContraste = document.getElementById('alterna-contraste');
+    const aumentarFonteBtn = document.getElementById('aumentar-fonte');
+    const diminuirFonteBtn = document.getElementById('diminuir-fonte');
     const body = document.body;
 
-    // Função para alternar visibilidade das opções de acessibilidade
-    if (botaoAcessibilidade && opcoesAcessibilidade) {
-        botaoAcessibilidade.addEventListener('click', function() {
-            opcoesAcessibilidade.classList.toggle('apresenta-lista');
-            const expanded = botaoAcessibilidade.getAttribute('aria-expanded') === 'true' || false;
-            botaoAcessibilidade.setAttribute('aria-expanded', !expanded);
-        });
-    }
+    let fontSize = 1.1; // Tamanho de fonte base em 'rem'
 
-    // Função para aumentar a fonte
-    if (aumentarFonte) {
-        aumentarFonte.addEventListener('click', function() {
-            let fontSize = parseFloat(getComputedStyle(body).fontSize);
-            body.style.fontSize = (fontSize + 1) + 'px';
-        });
-    }
+    // Alterna a visibilidade das opções de acessibilidade
+    botaoAcessibilidade.addEventListener('click', function () {
+        opcoesAcessibilidade.classList.toggle('apresenta-lista');
+        const expanded = opcoesAcessibilidade.classList.contains('apresenta-lista');
+        botaoAcessibilidade.setAttribute('aria-expanded', expanded);
+    });
 
-    // Função para diminuir a fonte
-    if (diminuirFonte) {
-        diminuirFonte.addEventListener('click', function() {
-            let fontSize = parseFloat(getComputedStyle(body).fontSize);
-            body.style.fontSize = (fontSize - 1) + 'px';
-        });
-    }
+    // Aumenta o tamanho da fonte
+    aumentarFonteBtn.addEventListener('click', function () {
+        fontSize += 0.1;
+        body.style.fontSize = fontSize + 'rem';
+    });
 
-    // Função para alternar alto contraste
-    if (alternaContraste) {
-        alternaContraste.addEventListener('click', function() {
-            body.classList.toggle('alto-contraste');
-        });
-    }
+    // Diminui o tamanho da fonte
+    diminuirFonteBtn.addEventListener('click', function () {
+        fontSize -= 0.1;
+        if (fontSize < 0.8) fontSize = 0.8; // Garante que a fonte não fique muito pequena
+        body.style.fontSize = fontSize + 'rem';
+    });
+
 });
