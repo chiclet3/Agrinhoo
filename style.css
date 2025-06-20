@@ -1,4 +1,4 @@
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
 
 /* --- CSS Variables (Custom Properties) --- */
@@ -46,7 +46,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem; /* Slightly larger base font for better readability */
     line-height: 1.6;
-    background-color: var(--cor-fundo-pagina); /* Applied new variable */
+    /* Linha substituída para adicionar o degradê */
+    background: linear-gradient(to bottom, var(--cor-terciaria), var(--cor-secundaria), var(--cor-primaria)); /* Degradê suave do bege claro para o marrom/vinho */
     color: var(--cor-texto-escuro);
     /* animation: background-pulse 4s infinite alternate; */ /* Desativado para melhor controle com ScrollReveal */
 }
@@ -575,14 +576,10 @@ header {
         transform: scale(0.9); /* Slightly smaller start scale */
     }
     to {
-        opacity: 1;
         transform: scale(1);
     }
 }
 
 /* --- ScrollReveal.js Classes --- */
 /* Base styles for elements that will be animated */
-.animated-element, .animated-item {
-    opacity: 0; /* Start invisible */
-    transform: translateY(30px); /* Start slightly below final position */
-    
+.animated-element, .animated-i
