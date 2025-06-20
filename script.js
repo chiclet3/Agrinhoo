@@ -1,53 +1,46 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Configuração do ScrollReveal
-    // Mais informações em: https://scrollrevealjs.org/
+    // ... (Seu código ScrollReveal permanece o mesmo aqui) ...
+
     ScrollReveal({
-        reset: false, // Define se a animação deve ser redefinida ao rolar de volta para cima
-        distance: '60px', // Distância que o elemento irá "viajar"
-        duration: 1500, // Duração da animação em milissegundos
-        easing: 'cubic-bezier(.694,0,.335,1)', // Curva de aceleração da animação
-        interval: 100 // Intervalo entre animações de múltiplos elementos com a mesma classe
+        reset: false,
+        distance: '60px',
+        duration: 1500,
+        easing: 'cubic-bezier(.694,0,.335,1)',
+        interval: 100
     });
 
-    // Aplica animação a elementos com a classe .animated-element
-    // Estas são as seções principais que aparecerão ao rolar
     ScrollReveal().reveal('.animated-element', {
-        origin: 'bottom', // A animação vem de baixo
-        opacity: 0, // Começa invisível
-        scale: 0.9 // Começa ligeiramente menor
+        origin: 'bottom',
+        opacity: 0,
+        scale: 0.9
     });
 
-    // Aplica animação a elementos com a classe .animated-item
-    // Usado para itens dentro das seções, como os cards e as imagens da galeria
     ScrollReveal().reveal('.animated-item', {
-        origin: 'bottom', // A animação vem de baixo
-        opacity: 0, // Começa invisível
-        scale: 0.9, // Começa ligeiramente menor
-        interval: 200 // Pequeno atraso entre cada item para um efeito em cascata
+        origin: 'bottom',
+        opacity: 0,
+        scale: 0.9,
+        interval: 200
     });
 
-    // Animação específica para o título principal no topo da página
     ScrollReveal().reveal('.inicio-fundo h1', {
-        origin: 'top', // O título vem de cima
+        origin: 'top',
         distance: '40px',
         duration: 1800,
-        delay: 500, // Um pequeno atraso para aparecer depois que a página carrega
+        delay: 500,
         easing: 'ease-out',
         scale: 1
     });
 
-    // Animação para os parágrafos dentro da seção de início
     ScrollReveal().reveal('.esquerda-conteudo p', {
-        origin: 'left', // Parágrafos vêm da esquerda
+        origin: 'left',
         distance: '50px',
         duration: 1600,
-        delay: 700, // Atraso após o título
-        interval: 300 // Atraso entre cada parágrafo
+        delay: 700,
+        interval: 300
     });
 
-    // Animação para a imagem na seção de início
     ScrollReveal().reveal('.img-inicio', {
-        origin: 'right', // Imagem vem da direita
+        origin: 'right',
         distance: '50px',
         duration: 1600,
         delay: 800
@@ -59,73 +52,79 @@ document.addEventListener('DOMContentLoaded', function () {
     const opcoesAcessibilidade = document.getElementById('opcoes-acessibilidade');
     const aumentarFonteBtn = document.getElementById('aumentar-fonte');
     const diminuirFonteBtn = document.getElementById('diminuir-fonte');
-    const lerVozAltaBtn = document.getElementById('ler-voz-alta'); // NOVO: Botão de leitura em voz alta
+    const lerVozAltaBtn = document.getElementById('ler-voz-alta');
     const body = document.body;
 
-    let fontSize = 1.1; // Tamanho de fonte base em 'rem'
+    let fontSize = 1.1;
 
-    // Alterna a visibilidade das opções de acessibilidade
     botaoAcessibilidade.addEventListener('click', function () {
         opcoesAcessibilidade.classList.toggle('apresenta-lista');
         const expanded = opcoesAcessibilidade.classList.contains('apresenta-lista');
         botaoAcessibilidade.setAttribute('aria-expanded', expanded);
     });
 
-    // Aumenta o tamanho da fonte
     aumentarFonteBtn.addEventListener('click', function () {
         fontSize += 0.1;
         body.style.fontSize = fontSize + 'rem';
     });
 
-    // Diminui o tamanho da fonte
     diminuirFonteBtn.addEventListener('click', function () {
         fontSize -= 0.1;
-        if (fontSize < 0.8) fontSize = 0.8; // Garante que a fonte não fique muito pequena
+        if (fontSize < 0.8) fontSize = 0.8;
         body.style.fontSize = fontSize + 'rem';
     });
 
-    // --- Funcionalidade de Leitura em Voz Alta (NOVO CÓDIGO) ---
-    if ('speechSynthesis' in window) { // Verifica se a API está disponível no navegador
+    // --- Funcionalidade de Leitura em Voz Alta (CÓDIGO MODIFICADO) ---
+    if ('speechSynthesis' in window) {
         const synth = window.speechSynthesis;
         let utterance = new SpeechSynthesisUtterance();
 
-        // Configurações iniciais do Utterance
-        utterance.lang = 'pt-BR'; // Define o idioma para Português (Brasil)
+        utterance.lang = 'pt-BR';
 
-        // Função para obter todo o texto visível da página
+        // --- FUNÇÃO getPageText() MODIFICADA ---
         function getPageText() {
-            // Seleciona os elementos principais de conteúdo.
-            // Você pode ajustar esses seletores para incluir ou excluir áreas específicas.
-            const contentElements = document.querySelectorAll('h1, h2, h3, p, li, figcaption, a.nav-link, footer p');
             let fullText = '';
-            contentElements.forEach(element => {
-                // Adiciona o texto do elemento, tratando tags para melhor leitura
-                let text = element.innerText || element.textContent; // Prefer innerText para conteúdo visível
 
-                // Limita a quantidade de texto para cada elemento, evitando sobrecarga
-                if (text.length > 500) {
-                    text = text.substring(0, 500) + '...'; // Trunca textos muito longos
+            // Seções principais do site que contêm conteúdo textual relevante
+            const sections = ['#inicio', '#tropicalia', '#campo-cidade', '#galeria', '#contato'];
+
+            sections.forEach(sectionId => {
+                const section = document.querySelector(sectionId);
+                if (section) {
+                    // Seleciona títulos e parágrafos dentro de cada seção
+                    const textElements = section.querySelectorAll('h1, h2, h3, p');
+                    textElements.forEach(element => {
+                        // Certifica-se de pegar o texto visível
+                        let text = element.innerText || element.textContent;
+
+                        // Adiciona uma pequena pausa após cada parágrafo ou título
+                        fullText += text.trim() + '. ';
+                    });
                 }
-
-                // Adiciona uma pequena pausa entre blocos de texto
-                fullText += text.trim() + '. ';
             });
-            // Remove múltiplos espaços e novas linhas
-            return fullText.replace(/\s+/g, ' ').trim();
-        }
 
-        let isSpeaking = false; // Estado para controlar se está falando ou não
+            // Adiciona o texto do footer, se desejar
+            const footer = document.querySelector('footer p');
+            if (footer) {
+                fullText += footer.innerText.trim() + '. ';
+            }
+
+            // Remove múltiplos espaços, novas linhas e "..." caso tenha truncado em outros lugares
+            return fullText.replace(/\s+/g, ' ').replace(/\.\s*\.\s*\./g, '.').trim();
+        }
+        // --- FIM DA FUNÇÃO getPageText() MODIFICADA ---
+
+
+        let isSpeaking = false;
 
         lerVozAltaBtn.addEventListener('click', function () {
             if (isSpeaking) {
-                // Se já estiver falando, para a fala
                 synth.cancel();
                 isSpeaking = false;
                 lerVozAltaBtn.textContent = 'Ler em voz alta';
                 lerVozAltaBtn.setAttribute('aria-label', 'Ativar leitura em voz alta do conteúdo');
             } else {
-                // Se não estiver falando, inicia a fala
-                const textToSpeak = getPageText(); // Obtém o texto do conteúdo principal da página
+                const textToSpeak = getPageText();
 
                 if (textToSpeak) {
                     utterance.text = textToSpeak;
@@ -135,30 +134,22 @@ document.addEventListener('DOMContentLoaded', function () {
                     lerVozAltaBtn.setAttribute('aria-label', 'Parar leitura em voz alta');
                 } else {
                     console.warn("Nenhum texto encontrado para leitura.");
-                    // Opcional: Avisar o usuário que não há texto para ler.
                 }
             }
         });
 
-        // Evento para atualizar o estado do botão quando a fala termina (ou é cancelada)
         utterance.onend = function() {
             isSpeaking = false;
             lerVozAltaBtn.textContent = 'Ler em voz alta';
             lerVozAltaBtn.setAttribute('aria-label', 'Ativar leitura em voz alta do conteúdo');
         };
 
-        utterance.onboundary = function(event) {
-            // Opcional: Realçar o texto que está sendo lido.
-            // Isso requer uma implementação mais complexa de DOM traversal.
-            // Por enquanto, vamos manter simples.
-        };
+        // ... (onboundary permanece o mesmo, se tiver) ...
 
     } else {
-        // Se a API não for suportada, desabilita ou oculta o botão
         lerVozAltaBtn.disabled = true;
         lerVozAltaBtn.textContent = 'Leitura não suportada';
         lerVozAltaBtn.setAttribute('title', 'Seu navegador não suporta leitura de voz alta.');
         console.warn('Web Speech API não é suportada neste navegador.');
     }
 });
-        
